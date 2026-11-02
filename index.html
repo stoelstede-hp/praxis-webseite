@@ -445,6 +445,15 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 .news .th{width:100%;aspect-ratio:8/5;object-fit:cover;display:block}
 .news .tag{height:auto;padding:.8rem 1.4rem}
+
+/* Newsbeiträge */
+.post{max-width:760px}
+.post p,.post ul{max-width:none}
+.post ul ul{margin:.55rem 0 0}
+.post .note{font-size:.9rem;color:var(--muted)}
+.post-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.post-back{margin-top:1.8rem;font:600 .8rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase}
+.post-back a{text-decoration:none;color:var(--accent-text)}
 </style>
 </head>
 <body>
@@ -552,12 +561,12 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
   <section class="band bg-white" id="news"><div class="wrap">
     <div class="head"><span class="label">Aktuelles</span><h2>Aus der Praxis</h2></div>
     <div class="news">
-      <a href="https://heilpraxis-toelstede.de/uncategorized/immunsystem-staerken-hilfreiche-umsetzbare-tipps/" target="_blank" rel="noopener"><img class="th" src="img/news1.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Immunsystem</div><div class="body"><h3>Post-COVID, Long-COVID, Post-COVID-Syndrom – was nun?</h3><p>Long COVID, Post COVID oder Post-COVID-Syndrom sind Bezeichnungen für einen Zustand anhaltender COVID-19-Symptome, die über das eigentliche Infektionsgeschehen mit SARS-CoV-2 hinaus andauern.</p><span class="more">Weiterlesen →</span></div></a>
-      <a href="https://heilpraxis-toelstede.de/uncategorized/wim-hof-buteyko-pranayama-oder-doch-einfach-nur-tief-einatmen-2/" target="_blank" rel="noopener"><img class="th" src="img/news2.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Immunsystem</div><div class="body"><h3>Immunsystem stärken – hilfreiche &amp; umsetzbare Tipps</h3><p>Was ist unser Immunsystem? Unser Immunsystem ist die wichtigste Verteidigung gegenüber der Außenwelt.</p><span class="more">Weiterlesen →</span></div></a>
-      <a href="https://heilpraxis-toelstede.de/uncategorized/wim-hof-buteyko-pranayama-oder-doch-einfach-nur-tief-einatmen/" target="_blank" rel="noopener"><img class="th" src="img/news3.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Atmung</div><div class="body"><h3>Wim Hof, Buteyko, Pranayama oder doch einfach nur tief einatmen?</h3><p>Die Atmung rückt seit ein paar Jahren stark in den Fokus, vor allem durch das Buch „Breath“ von James Nestor und durch Wim Hof.</p><span class="more">Weiterlesen →</span></div></a>
-      <a href="https://heilpraxis-toelstede.de/uncategorized/covid-was-ist-labortechnisch-moeglich/" target="_blank" rel="noopener"><img class="th" src="img/news4.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Labor</div><div class="body"><h3>COVID – was ist labortechnisch möglich?</h3><p>Erschöpfung, starke Müdigkeit, Energielosigkeit, Blutdruckschwankungen, plötzliches Herzrasen, Kopfschmerzen, Sehstörungen, Konzentrationsschwäche.</p><span class="more">Weiterlesen →</span></div></a>
-      <a href="https://heilpraxis-toelstede.de/uncategorized/parasiten-grund-fuer-chronische-krankheiten-bzw-dauermuedigkeit-und-schlafproblemen/" target="_blank" rel="noopener"><img class="th" src="img/news5.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Schlaf</div><div class="body"><h3>Schlafstörung – was kann man untersuchen?</h3><p>Wenn die Angst vor dem Wecker zum Alltag wird … Du leidest unter Schlafstörungen? Du bist nicht allein! Rund 25 % der Deutschen haben Schlafprobleme oder leiden unter Schlaflosigkeit.</p><span class="more">Weiterlesen →</span></div></a>
-      <a href="https://heilpraxis-toelstede.de/uncategorized/parasiten/" target="_blank" rel="noopener"><img class="th" src="img/news6.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Darm</div><div class="body"><h3>Parasiten – Grund für chronische Krankheiten bzw. Dauermüdigkeit und Schlafprobleme?</h3><p>Was sind Parasiten und welche Symptome machen sie? Die erste Frage ist nicht ganz einfach zu beantworten, je nachdem, wie wir das Ganze betrachten.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="#news-post-covid"><img class="th" src="img/news1.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Immunsystem</div><div class="body"><h3>Post-COVID, Long-COVID, Post-COVID-Syndrom – was nun?</h3><p>Long COVID, Post COVID oder Post-COVID-Syndrom sind Bezeichnungen für einen Zustand anhaltender COVID-19-Symptome, die über das eigentliche Infektionsgeschehen mit SARS-CoV-2 hinaus andauern.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="#news-post-immunsystem"><img class="th" src="img/news2.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Immunsystem</div><div class="body"><h3>Immunsystem stärken – hilfreiche &amp; umsetzbare Tipps</h3><p>Was ist unser Immunsystem? Unser Immunsystem ist die wichtigste Verteidigung gegenüber der Außenwelt.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="#news-post-atmung"><img class="th" src="img/news3.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Atmung</div><div class="body"><h3>Wim Hof, Buteyko, Pranayama oder doch einfach nur tief einatmen?</h3><p>Die Atmung rückt seit ein paar Jahren stark in den Fokus, vor allem durch das Buch „Breath“ von James Nestor und durch Wim Hof.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="#news-post-covid-labor"><img class="th" src="img/news4.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Labor</div><div class="body"><h3>COVID – was ist labortechnisch möglich?</h3><p>Erschöpfung, starke Müdigkeit, Energielosigkeit, Blutdruckschwankungen, plötzliches Herzrasen, Kopfschmerzen, Sehstörungen, Konzentrationsschwäche.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="#news-post-schlaf"><img class="th" src="img/news5.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Schlaf</div><div class="body"><h3>Schlafstörung – was kann man untersuchen?</h3><p>Wenn die Angst vor dem Wecker zum Alltag wird … Du leidest unter Schlafstörungen? Du bist nicht allein! Rund 25 % der Deutschen haben Schlafprobleme oder leiden unter Schlaflosigkeit.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="#news-post-parasiten"><img class="th" src="img/news6.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Darm</div><div class="body"><h3>Parasiten – Grund für chronische Krankheiten bzw. Dauermüdigkeit und Schlafprobleme?</h3><p>Was sind Parasiten und welche Symptome machen sie? Die erste Frage ist nicht ganz einfach zu beantworten, je nachdem, wie wir das Ganze betrachten.</p><span class="more">Weiterlesen →</span></div></a>
     </div>
     <p style="margin-top:2rem"><a class="btn ghost" href="https://www.instagram.com/heilpraxis_toelstede/" target="_blank" rel="noopener">Auf Instagram folgen</a></p>
   </div></section>
@@ -803,6 +812,153 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
   </div></div>
 </div>
 
+<!-- NEWS-BEITRÄGE -->
+<div class="view" id="v-news-post-covid">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / <a href="#aktuelles">Aktuelles</a> / Immunsystem</span><h1>Post-COVID, Long-COVID, Post-COVID-Syndrom – was nun?</h1><p>20. März 2024 · Simone Toelstede</p></div></div>
+  <div class="wrap page"><article class="prose post">
+<p class="hl">Long COVID, Post COVID oder Post COVID Syndrom sind Bezeichnungen für einen Zustand anhaltender COVID 19 Symptome, die über einen Zeitraum des eigentlichen Infektionsgeschehen durch SARS-CoV-2 hinaus gehen.</p>
+<p>Die Symptomatik ist vielfältig, am häufigsten treten Fatigue, also Müdigkeit &amp; Erschöpfung, Atem-schwierigkeiten und neurologische Beschwerden auf.</p>
+<p>Des weiteren werden häufig folgende Symtome/Beschwerden beschrieben:</p>
+<ul><li>Brain Fog</li><li>Husten</li><li>Gelenk-/Muskelschmerzen</li><li>Kopfschmerzen</li><li>Depressionen</li><li>Kurzatmigkeit</li></ul>
+<p>Die Dauer kann dabei von mehreren Wochen bis Monaten reichen, abhängig vom Erkrankungsgrad und dem Gesundheitszustand vor der Infektion. Das Virus verursacht eine bedeutende Aktivierung der pro-entzündlichen Zytokine und das auch noch über die Infektion hinaus. Der Körper ist also in dem Status „angriffbereit“ stecken gebleiben. Dies ist labordiagnostisch auch gut nachweisbar.</p>
+<p>Therapeutisch von großer Relevanz ist dabei die orthomolekulare Medizin. Das Immunsystem kann entsprechend moduliert werden durch z.B. Weihrauch, Curcumin, Vitamin D, Vitamin C Hochdosen, Omega 3 Fettsäuren und dergleichen in oraler Form aber auch als Infusionen.</p>
+<p>Ebenso von großem Einfluss ist der Zustand unserer Mitochondrien, unseren Kraftwerken der Zelle. Im Fall einer Erschöpfungssymptomatik ist hier die IHHT Therapie der „Game Changer“ schlechthin. Schlecht funktionierende Kraftwerke werden dadurch systematisch aussortiert und damit Anreiz zur Produktion von neuen, gesunden Mitochondrien geschaffen. Die Zellen werden also „gesäubert“ und können dadurch wieder in vollem Maße Energie für unseren Körper in Form von ATP bereitstellen.</p>
+<h3>Kurz zusammengefasst: wichtige Behandlungskonzepte, die Anwendung finden</h3>
+<ul><li>Infusionstherapie mit Mineralien, Vitaminen (v.a. Vitamin C Hochdosistherapie) und Aminosäuren</li><li>IHHT – Intervall Hypoxie Hyperoxie Therapie</li><li>begleitende, individuell zusammengestellte orthomolekulare Therapie</li><li>antientzündliches Ernährungsprogramm</li></ul>
+    <div class="post-cta"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></div>
+    <p class="post-back"><a href="#aktuelles">← Alle Beiträge</a></p>
+  </article></div>
+</div>
+
+<div class="view" id="v-news-post-immunsystem">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / <a href="#aktuelles">Aktuelles</a> / Immunsystem</span><h1>Immunsystem stärken – hilfreiche &amp; umsetzbare Tipps</h1><p>20. März 2024 · Simone Toelstede</p></div></div>
+  <div class="wrap page"><article class="prose post">
+<h3>Was ist unser Immunsystem?</h3>
+<p>Unser Immunsystem ist die wichtigste Verteidigung gegenüber der Außenwelt. Mit einem starken Immunsystem können wir die unterschiedlichsten Krankheitserreger, Schadstoffe und Eindringlinge abwehren und unsere innere Balance mühelos aufrechterhalten.</p>
+<p>Barrieren wie Haut und Schleimhäute (physikalisch) sowie antimikrobielle Enzyme/Peptide (chemisch), die in Speichel, Ohrschmalz, Muttermilch, Magensäure oder Tränenflüssigkeit zu finden sind, sind hierbei erste Schutzmechanismen.</p>
+<p>Körpereigen gibt es eine Vielzahl an Zellen und Molekülen die alle dafür da sind Fremdstoffe/Erreger zu identifizieren und zu eliminieren. Darunter sind die bekannten weißen Blutkörperchen mit ihren Untergruppen (Lymphozyten, Granulozyten,…) aber auch Immunglobuline, Zytokine (z.B. TNF alpha, Interleukine, Interferone) und akute Phase Proteine wie z.B. CRP.</p>
+<p>Allen gemeinsam ist, dass diese körpereigenen Moleküle aus Eiweißbestandteilen aufgebaut sind, somit eine ausreichende Zufuhr an Proteinen in der Ernährung wichtig ist.</p>
+<h3>Was können wir für unser Immunsystem tun?</h3>
+<p>Im Grunde brauche ich hier nur 2 Themengebiete ansprechen da durch die Betrachtung dieser sich alles andere bereits ergibt:</p>
+<p>Unser Immunsystem ist vor allem durch die Darmgesundheit und die Einwirkung von Stress charakterisiert.</p>
+<h3>Darmgesundheit</h3>
+<p>70-80 % unserer Immunzellen befinden sich im Darm. Somit ist offensichtlich dass die Unterstützung der Darmgesundheit essentiell ist. Dabei sollte nicht wahl- und ziellos mit Probiotika der Versuch der Unterstützung unternommen werden, da es unter anderem sinnlos verschwendetes Geld ist (Stichwort: Clostridien) oder aber auch zur Verschlechterung (Stichwort „SIBO“ = „small intestine bacterial overgrowth“; im deutschen Dünndarmfehlbesiedlung) kommen kann.</p>
+<p>Vielmehr ist sowohl präventiv, bei Vorliegen von Autoimmun-/ chronischen Erkrankungen und/oder von diffusen Symptomen wie Blähungen, Verstopfung, Magendrücken, Bauchschmerzen &amp; Co ein Check der Darmgesundheit mit einer Analyse einer Stuhlprobe immer sinnvoll. Auch bei psychischen Problemen ist eine Analyse ratsam, da neuere Studienergebnisse darauf hinweisen, dass unser Mikrobiom auch hier beteiligt sein kann.</p>
+<p>Die Abbildung stellt einen einfachen Befund dar und listet pathogene Keime, Pilze als auch wichtige, förderliche Mikroorganismen sowie Verdauungsrückstände und Entzündungsmarker auf. Anhand dessen können Beurteilungen über die Leistung des Verdauungssystems und den aktuellen Zustand vorgenommen werden.</p>
+<p>Des Weiteren können bei chronischen Verdauungsbeschwerden zusätzliche Untersuchungen wie Parasiten aber auch Proliferations-/Tumormarker mit aufgenommen werden.</p>
+<h3>Stress</h3>
+<p>Chronischer Stress ist einer der Hauptfaktoren für ein unausgeglichenes Immunsystem und eine erhöhte Infektanfälligkeit und der Entstehung von Autoimmunerkrankungen. Dabei ist das recht neue Fachgebiet der klinischen Psychoneuroimmunologie (kPNI) federführend. Der Zusammenhang von Psyche / psychologischen Prozessen und dem zentralen Nervensystem auf unser Immunsystem wird hier grundlegend untersucht.</p>
+<p>Dabei sind kognitive, soziale und psychologische Stressoren gleichbedeutend wie körperliche Belastungen.</p>
+<p>Die Analyse der Herzratenvariabilität (siehe Blogartikel vom 27.04.21) ist hierbei ein objektives Tool den Zustand unseres Nervensystems und das Ausmaß des Stresspegels zu erfassen.</p>
+<p>Die Höhe des Wachstumsfaktors BDNF (brain derived neurotrophic factor) gibt dabei Auskunft inwiefern wir uns vom chronischen Stress erholen können.</p>
+<p>Zur Anhebung des BDNFs können wir viele Dinge tun. Dabei lautet das Stichwort „aktives Stressmanagement“. Dieses umfasst viele kleine oder auch größere Maßnahmen die zu einer Lebensstilveränderung führen und damit zu einer Anhebung des Gesundheitslevels.</p>
+<p>Im Folgenden hilfreiche und zumeist einfach umzusetzende Maßnahmen inkl. Link/ Literatur-empfehlungen:</p>
+<ul><li>Nahrungsergänzungsmittel (bei erhöhtem Stressaufkommen): Magnesiumspiegel erhöhen, B-Vitamin Komplex, Zinksubsititution, Vitamin D , liposomales Curcumin</li><li>ausreichend Schlaf; Schlafmangel führt zu einer Insulinresistenz</li><li>moderate Bewegung; Leistungssport ist gleichzusetzen mit chronischem Stress</li><li>Berührungen durch z.B. Massagen, Osteopathie, Cranio Sakral Therapie</li><li>Akupunktur: vereinfacht mittlerweile durch eine Akupunkturmatte möglich (z.B. Shaktimat)</li><li>Sonnenlichtexposition (zurück zum natürlichen Tag/Nacht Rhythmus), vermeide wo möglich künstliche Lichtquellen. Ersetze diese mit Kerzenlicht oder Salzlampen</li><li>Thermoregulation: Kältereize setzen z.B. durch kalt duschen, Eisbaden bzw. sich der Hitze aussetzen in Form von Sauna; dabei die Reize wirken lassen und den Körper die Aufgabe der Regulation überlassen; sprich nach der Sauna nicht kalt abduschen!</li><li>Musik; morgens damit starten, abends den Tag mit ruhigen Klängen beenden</li></ul>
+<h3>Buchempfehlungen</h3>
+<ul><li>Christian Schubert: Was uns krank macht – Was uns heilt</li><li>James DiNicolantonio, Siim Land: Der Immun Guide</li><li>Gregor Hasler: Die Darm-Hirn Connection</li><li>Lissa Rankin: Mind over Medicine</li></ul>
+<p class="note">Image Credit: <a href="https://theicebath.com.au/" target="_blank" rel="noopener">theicebath.com.au</a> (The Ice Bath)</p>
+    <div class="post-cta"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></div>
+    <p class="post-back"><a href="#aktuelles">← Alle Beiträge</a></p>
+  </article></div>
+</div>
+
+<div class="view" id="v-news-post-atmung">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / <a href="#aktuelles">Aktuelles</a> / Atmung</span><h1>Wim Hof, Buteyko, Pranayama oder doch einfach nur tief einatmen?</h1><p>20. März 2024 · Simone Toelstede</p></div></div>
+  <div class="wrap page"><article class="prose post">
+<p class="hl">Die Atmung rückt seit ein paar Jahren, vor allem im Zuge der Veröffentlichung von dem Buch „Breath“ von James Nestor und durch Wim Hof sehr stark in den Fokus.</p>
+<p>Kann ich mit der Atmung wirklich diverse Krankheiten wie Asthma oder Bluthochdruck heilen? Kann ich mein Wohlbefinden damit steigern?</p>
+<p>Ich sage ganz klar „Ja“ zu einer Betrachtung der Atmung in Bezug auf unsere Gesundheit.</p>
+<p>Allen Atemformen von Yoga über Tummo und Buteyko zu Wim Hof liegt die Reduzierung des Atems (auch bei Wim Hof, wo nach der Hyperventilation ein minutenlanges Luftanhalten folgt) zugrunde und damit einer Steigerung des Kohlendioxidgehaltes im Blut.</p>
+<h3>Und warum soll ich Kohlendioxid in meinem Blut anreichern?</h3>
+<p>Ist nicht der Sauerstoff das essentielle für uns?</p>
+<p>Ja und Nein.</p>
+<p>Sauerstoff ist lebensnotwendig für uns, jedoch ist es so, dass der Sauerstoffgehalt in unserem Blut bereits weitgehend gesättigt ist (ganz simpel nachweisbar mit einem Pulsoximeter; Konzentration liegt um die 97-98%). Somit können wir durch ein übersteigertes Atmen nicht mehr Sauerstoff zuführen. Im Gegenteil: wir verdrängen CO2 aus dem Blut. Dieser Austausch findet in den sogenannten Alveolen in den Bronchien. Und die Konzentration an Kohlendioxid im Blut ist, wie man herausgefunden hat, recht wichtig für uns. Auch unser Atemzentrum im Gehirn richtet sich nach dem CO2 Gehalt und nicht dem O2 Gehalt im Blut. Also wird die Atmung nach dem CO2 Gehalt gesteuert.</p>
+<p>Zum einen wirkt Kohlendioxid entspannend auf unsere Blutgefäße und die glatte Muskulatur der Atemwege (folglich auch zur Entkrampfung bei Asthma). Des Weiteren ist CO2 die wichtigste Komponente in unserem Puffersystem des Säure-Basenhaushaltes. Und zu guter Letzt ganz erstaunlich aber wahr, ein Mangel an CO2 führt zu einer schlechteren Sauerstoffversorgung in unseren Geweben da unter solchen Bedingungen der Sauerstoff fester ans Hämoglobin gebunden wird.</p>
+<h3>Und warum sollte ich einen CO2-Mangel haben?</h3>
+<p>Da im Grunde alle, die einen Job &gt;40 Stunden, evtl. noch Kinder haben und in München wohnen einen zumeist hektischen und stressigen Alltag haben. Der Stress führt dazu, dass wir unbewusst in eine Überatmung, also eine Hyperventilation fallen. Diese Überatmung hat zur Folge, dass wir zuviel Sauerstoff einatmen und zu viel Kohlendioxid abatmen.</p>
+<p>Und da unser Atemzentrum sich leider langsam aber schleichend an den CO2-Mangel adaptiert und neu einstellt wird der Luftwunsch schon bei einer niedrigeren Kohlendioxidschwelle ausgelöst. Dies wiederum hat zur Folge, dass wir öfter atmen, also in eine Überatmung kommen.</p>
+<p>Und eine weitere wichtige Komponente, die vor allem im Buch „Breath“ und bei Buteyko thematisiert wird ist, dass unsere Atmung über die Nase zu erfolgen hat. Reine Mundatmung hat äußerst negative Folgen auf unseren Gesamtorganismus. Von Bluthochdruck über chronische Sinusitis bis hin zu Schlafapnoe und vielen weiteren Auswirkungen. Biochemisch und anatomisch auch gut zu erklären, da wir neben der Befeuchtung und Reinigung der Luft, eine Erhöhung von NO (Stickstoffmonoxid) durch die Nasenatmung erreichen. NO hemmt Bakterien, Pilze und Viren, erweitert die Bronchien und sorgt damit für eine bessere Sauerstoffaufnahme und eine bessere Durchblutung.</p>
+<h3>Was du leicht umsetzen kannst</h3>
+<p>Somit für euch die wichtigsten Dinge, die leicht umsetzbar sind und euch wieder in eine höhere Kohlendioxid-Schwelle bringen können:</p>
+<ul><li>Überprüft eure Atmung im Alltag: wie oft und bei welchen Gelegenheiten atme ich durch den Mund?</li><li>Ändert Mundatmung auf Nasenatmung im Alltag, beim Spazieren, beim Treppensteigen, nachts (klebt euch mit einem kleinen Stück Leukosilk den Mund zu), für Fortgeschrittene auch beim Sport wie Wandern, Joggen,…</li><li>Reduziert eure Atmung: weniger stark einatmen, dafür länger ausatmen</li></ul>
+<p>..und wenn ihr nun Lust bekommen habt eure Atmung zu erforschen, dann am besten über die Buteyko-Methode oder über das Höhentraining, das übrigens auch eure Kohlendioxidschwelle schrittweise wieder nach oben trainiert.</p>
+<p>..und noch zu Wim Hof: das Training ist eine sehr sympathikotone Methode, die für Menschen, die eh schon recht gestresst sind nicht unbedingt empfehlenswert ist. Somit vorher noch euren Stresslevel testen, um auf der sicheren Seite zu sein!</p>
+<p>..und tief einatmen könnt ihr dennoch immer mal wieder (und zwar in den Bauch und nicht in den Brustkorb), da es eure Rückenmuskulatur massiert.</p>
+    <div class="post-cta"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></div>
+    <p class="post-back"><a href="#aktuelles">← Alle Beiträge</a></p>
+  </article></div>
+</div>
+
+<div class="view" id="v-news-post-covid-labor">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / <a href="#aktuelles">Aktuelles</a> / Labor</span><h1>COVID – was ist labortechnisch möglich?</h1><p>20. März 2024 · Simone Toelstede</p></div></div>
+  <div class="wrap page"><article class="prose post">
+<p class="hl">Erschöpfung, starke Müdigkeit, Energielosigkeit, Blutdruckschwankungen, Thrombosen, Herzmuskelentzündungen, Blutdruckschwankungen, plötzliches Herzrasen, Kopfschmerzen, Sehstörungen, Konzentrationsschwäche, Urtikaria (Nesselsucht, verstärkte Magen- und Darmbeschwerden,…</p>
+<h3>Unterschiedlichste Symptomatiken nach COVID Infektionen / Impfungen</h3>
+<p>Die Liste ist lang und scheint immer länger zu werden: die Nebenwirkungen und Folgen von COVID Impfungen sowie COVID Infektionen.</p>
+<p>Laut neuster Erkenntnisse ist es so, dass durch die Spike Proteine, die durch die Infektion aber vor allem bei der Impfung systemisch (!) auf uns einwirken können, diverse Krankheitsbilder entstehen bzw. vorher bereits bestehende verstärkt werden können.</p>
+<p>Die folgende Abbildung gibt eine Übersicht, welche bislang erforschten Pathologien festgestellt worden sind (und dabei ist es nicht isoliert zu betrachten, sondern es besteht die Möglichkeit, dass mehrere Pathologien bei einer Person vergesellschaftet und zeitgleich auftreten können).</p>
+<h3>Was heißt das wiederum?</h3>
+<p>Es ist ein ausgesprochen komplexes Geschehen, welches eine grundlegende und spezifische Diagnostik und auch dementsprechend eine individuelle Therapie erfordert.</p>
+<p>Problematik bei dem Ganzen ist nämlich, dass die Ausprägung der Symptome sehr unterschiedlich sein kann (s. Einleitung oben) und deswegen das Syndrom auch oft verkannt wird.</p>
+<h3>Nun zur Diagnostik…</h3>
+<p>Mittlerweile existieren einige „Marker“, die bei den genannten Pathologien untersucht werden können und damit eine Therapie spezifischer erfolgen kann.</p>
+<ul><li><b>Neuroinflammation:</b> z.B.: NSE, S-100, IDO/KMO</li><li><b>Autoimmunität:</b> z.B.: GPCR Antikörper, allg. Auto-Ak</li><li><b>Mitochondriopathie:</b> z.B.: LDH Isoenzyme, BHI,..</li><li><b>Endotheliitis:</b> z.B.: VEGF, RANTES,..</li><li><b>Mikrogerinnsel:</b> z.B.: D-Dimer, Thrombopenie</li><li><b>V-AIDS:</b> z.B.: NK Aktivität, Lymphozytendiffernzierung, IFNy/IL-4</li></ul>
+<p>..und natürlich gibt es noch die spezifische Testung auf Nucleocapsid- bzw. Spike Antikörper</p>
+    <div class="post-cta"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></div>
+    <p class="post-back"><a href="#aktuelles">← Alle Beiträge</a></p>
+  </article></div>
+</div>
+
+<div class="view" id="v-news-post-schlaf">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / <a href="#aktuelles">Aktuelles</a> / Schlaf</span><h1>Schlafstörung – was kann man untersuchen?</h1><p>20. März 2024 · Simone Toelstede</p></div></div>
+  <div class="wrap page"><article class="prose post">
+<p class="hl">Wenn die Angst vor dem Wecker zum Alltag wird…</p>
+<p>Du leidest unter Schlafstörungen?</p>
+<p>Du bist nicht allein!</p>
+<p>Rund 25 % der Deutschen haben Schlafprobleme oder leiden unter Schlaflosigkeit. Weitere 11 % wachen morgens unerholt auf.</p>
+<h3>Arten von Schlafstörungen</h3>
+<ul><li>Einschlafstörung</li><li>Durchschlafstörungen</li><li>Ausschlafstörung</li></ul>
+<p>Wichtig ist aber genau diesen Störungen, wenn sie länger dauern auf den Grund zu gehen, da sie dir Energie entziehen und deinen Körper langfristig schaden.</p>
+<p>Nicht nur, dass es dich psychisch destabilisiert (Gereiztheit, Unkonzentriertheit, Depressivität…), es greift in deine biochemischen Prozesse ein, so dass langfristig dein Immunsystem geschwächt wird, Entzündungen (beispielsweise entsteht nach nur 1-2 Nächten schlechterem Schlaf eine Insulinresistenz, die langfristig in Diabetes übergehen kann) und damit einhergehend chronische Erkrankungen entstehend können.</p>
+<h3>Ursachen von Schlafstörungen</h3>
+<ul><li>Psychisch (Erkrankungen, Stress, Belastungen, Depressionen)</li><li>Körperlich:<ul><li>Organische Ursachen (Herz-/Lungenerkrankungen, Apnoe,..)</li><li>Fehlende Mineralstoffe (Zink, Eisen,..), fehlende Aminosäuren (Tryptophan)</li><li>Hormonell (Geschlechtshormone, Schlafhormon, Stresshormone, Schilddrüsenhormone, Vitamin D Status)</li><li>Stille Entzündungen im Darm</li><li>Medikamente</li><li>Schwermetalle</li></ul></li><li>Äußere Einflüsse (Schlafhygiene)</li></ul>
+<p>Ganz häufig sehe ich die willkürliche Einnahme von gewissen Nahrungsergänzungsmitteln wie Melatonin, Lavendel oder Baldrian, jedoch ohne zufriedenstellenden Output.</p>
+<p>Aufgrund dessen braucht es neben einer ausführlichen Anamnese auch eine entsprechende Diagnostik, um die Ursache(n) einzugrenzen, um dann zielgerichtet vorzugehen.</p>
+<h3>Diagnostische Möglichkeiten</h3>
+<ul><li>spezifische Labordiagnostik, um Mängel ausfindig zu machen (Vollblutmineralanalyse, Aminosäurediagnostik, Hormonanalysen, ggf. Schwermetalle)</li><li>Stressdiagnostik zur Überprüfung, inwieweit das Nervensystem beteiligt ist</li><li>Darmuntersuchung (Zusammenhang v.a. auf der hormonellen Ebene)</li></ul>
+<p>Ein sehr wichtiges Tool ist dabei die 24-h HRV (Herzratenvariabilitäts)-Messung, da wir deinen Schlaf dann im Detail betrachten können.</p>
+<p>Fragen wie: sind genug Schlafzyklen (4-5 sollten es sein) vorhanden? Hast du genug REM- und Tiefschlafphasen? Hast du zuvor Stressfaktoren im Alltag, die dir so nicht bewußt sind?</p>
+<p>Es gibt also hier einiges, was erforscht und entsprechend behandelt werden kann. Schlafstörungen sind also keine Sache die zum Alltag gehören sollten…</p>
+<p>Was könnte der Ursprung bei dir sein? Lass uns erforschen…</p>
+    <div class="post-cta"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></div>
+    <p class="post-back"><a href="#aktuelles">← Alle Beiträge</a></p>
+  </article></div>
+</div>
+
+<div class="view" id="v-news-post-parasiten">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / <a href="#aktuelles">Aktuelles</a> / Darm</span><h1>Parasiten – Grund für chronische Krankheiten bzw. Dauermüdigkeit und Schlafprobleme?</h1><p>14. Januar 2024 · Simone Toelstede</p></div></div>
+  <div class="wrap page"><article class="prose post">
+<h3>Was sind Parasiten und welche Symptome machen sie?</h3>
+<p>Die erste Frage ist nicht wirklich einfach zu beantworten, je nachdem wie wir das Ganze betrachten. Das Wort „parasitär“ heißt ja „auf Kosten des Wirtes“.</p>
+<p>Im klassischen Sinne sind es vor allem die Würmer (Metazoen, Helminthen) z.B. Band-, Maden, Spul-, Hakenwürmer, die Einzeller (Protozoen) z.B. Giardien, Babesien, Amöben, und die Gliederfüssler (Arthropoden) wie z.B. Flöhe, Läuse, Zecken, Mücken, Wanzen und Milben.</p>
+<p>Diese Einschränkung wird mittlerweile zunehmends aufgehoben und zwar dahin gehend, dass entsprechend auch Viren (wie z.B. EBV) oder weitere Bakterien (z.B. Borrelien) mit aufgenommen werden, da diese ebenso dazu beitragen können den „Wirt“ „lahm“ zu legen (siehe Symptome weiter unten).</p>
+<p>Die Infektionswege sind mannigfaltig – von ungewaschenem Gemüse, Wildkräutern und Co, hin zu rohem Fleisch und Fisch über Haustiere, Insektenbisse und sexuellem Verkehr. Viele Parasiten leben in/mit uns, ohne dass sie Symptome (asymptotisch) verursachen. Sie können also lange Zeit mit uns „im Einklang leben“. Zum Teil geht man auch davon aus, dass sie uns in gewissen Bereichen wie z.B. Schwermetallbelastung unterstützen, da die Parasiten diese gerne „aufsammeln“.</p>
+<p>Wenn jedoch das Immunstem unter zunehmenden Beschuss ist, durch z.B. zu viel Stress/Dauerstress, bestimmte emotionale Einschläge/Konflikte, größeren Schwermetallbelastungen, Impfungen, und/oder durch andere Krankheiten / Co-Infektionen, dann kann es passieren, dass die Parasiten sich übermäßig vermehren und Symptome hervorrufen können.</p>
+<p class="hl">Das Leitsymptom ist chronische Müdigkeit.</p>
+<p>Weitere mögliche Symptome:</p>
+<ul><li>häufige Bauchschmerzen, Blähungen, Durchfälle oder Verstopfungen; z.T. Nahrungsmittelunverträglichkeiten, Allergien</li><li>Gewichtsverlust, oder Gewichtszunahme ohne Grund</li><li>Muskel- und Gelenkschmerzen</li><li>dunkle Augenringe</li><li>Schweißausbrüche oder starkes Frösteln</li><li>Juckende Haut, Ekzeme</li><li>Herzrasen (Tachykardie) verbunden mit Ängsten</li><li>Bluthochdruck</li><li>trockener Reizhusten, Asthma</li><li>wiederkehrende Kopfschmerzen, Migräne</li><li>Schwindel, Sehstörungen</li><li>Zähneknirschen</li><li>Depressionen, Nervosität, Konzentrationsschwierigkeiten, Brain Fog</li></ul>
+<p>Mittlerweile gehen einige Ärzte / Therapeuten (z.B. Dr. Jansen-Rossek ) davon aus, dass viele chronische Erkrankungen (z.B. Chronische Fatigue, Multiple Sklerose,…) meist „nur“ eine Multiinfektion darstellen, sprich, dass der Mensch zu viele Erreger im Laufe seines Lebens aufgesammelt hat und das spezifische „Sammelsurium“ dann die entsprechende „chronische Krankheit“ ergibt.</p>
+<p>Zur Beachtung dabei ist, dass Parasiten nicht nur im Verdauungssystem sondern in unterschiedlichen Organen vorzufinden sind (siehe Abbildung).</p>
+<p class="note">Quelle: www.drclark.net</p>
+<h3>Diagnostik</h3>
+<p>Im Bereich der Diagnostik sieht es in der Parasitologie leider nicht so vielversprechend aus. Bei viralen oder bakteriellen Parasiten gibt es zum Teil noch gute Möglichkeiten über Antikörper (hier bestmöglich über den Immunofluoreszenztest) fündig zu werden. Bei den größeren „Kollegen“ wird es allerdings immer schwieriger mit dem Nachweis, da diese ein Enzymsystem besitzen, welches aktiv wird, wenn sie am Absterben sind und welches die komplette Selbstverdauung initiiert, so dass kein Nachweis mehr möglich ist. Das passiert im Grunde nach ca. 15-30 min nachdem der Stuhl abgesetzt wurde. Somit müsste man – um eine ordentliche Aussage zu bekommen – in das Tropenmedizinische Institut und dort eine frische Probe abgeben. Und das ganze bestmöglich 3x, da nicht mit jedem Stuhlgang der Parasit bzw. seine Eier/Larven ausgeschieden werden (Lebenszyklus abhängig). Generell kann (v.a. bei Würmern)– muss aber nicht – im Blutbild eine Erhöhung des Immunglobulins IgE festgestellt werden oder/und auch eine Erhöhung der Monocyten. Auch sollte man hellhörig werden, wenn gewisse Nährstoffmängel wie z.B. Zink, Selen oder Eisen immer wieder auftreten und trotz Substitution nicht behoben werden können. Eine bessere Diagnosestellung kann zum Teil über die Kinesiologie bzw. auch mit Hilfe der Frequenztherapie (mittels HRV Biofeedback) erfolgen.</p>
+<h3>Therapie</h3>
+<p>Klassischerweise werden vor allem bei einem Wurmbefall Antihelminthika, wie z. B. Mebendazol) gegeben. Das mittlerweile sehr bekannte Ivermectin ist ebenso ein Wurmmittel, bei dem mittlerweile aber festgestellt wurde, dass es eben auch gegen Viren agiert (z.B. Corona-, Herpesviren). Phytotherapeutisch gibt es eine Reihe von sehr potenten Mitteln gegen Parasiten wie z.B. Schwarzwalnuss, Wermut, Nelke, Rizinusöl, Terpentin, Rizole oder Papain. Begleitend sollten die Ausscheidungsorgane sowie die Leber als auch das Immunsystem (orthomolekulare Medizin) unterstützt und entsprechende Bindemittel eingesetzt werden. Direkte Therapie einzelner Parasiten kann mit Hilfe der Frequenztherapie erfolgen.</p>
+    <div class="post-cta"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></div>
+    <p class="post-back"><a href="#aktuelles">← Alle Beiträge</a></p>
+  </article></div>
+</div>
+
 <!-- PREISE -->
 <div class="view" id="v-preise">
   <div class="pz-hero"><div class="wrap">
@@ -879,7 +1035,7 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
   rays('rays',100,98,62,92,18,7);
   rays('miniRays',50,50,34,46,12,3);
 
-  var views={home:'v-home','ueber-mich':'v-ueber-mich',labor:'v-labor',stress:'v-stress',ihht:'v-ihht',hyperthermie:'v-hyperthermie',rifetech:'v-rifetech',medkey:'v-medkey',infusion:'v-infusion',darm:'v-darm',ohr:'v-ohr',preise:'v-preise'};
+  var views={home:'v-home','ueber-mich':'v-ueber-mich',labor:'v-labor',stress:'v-stress',ihht:'v-ihht',hyperthermie:'v-hyperthermie',rifetech:'v-rifetech',medkey:'v-medkey',infusion:'v-infusion',darm:'v-darm',ohr:'v-ohr',preise:'v-preise','news-post-covid':'v-news-post-covid','news-post-immunsystem':'v-news-post-immunsystem','news-post-atmung':'v-news-post-atmung','news-post-covid-labor':'v-news-post-covid-labor','news-post-schlaf':'v-news-post-schlaf','news-post-parasiten':'v-news-post-parasiten'};
   var nav=document.getElementById('nav'), burger=document.getElementById('burger');
   function show(){
     var h=(location.hash||'#home').slice(1), scrollNews=false;
