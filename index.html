@@ -1,0 +1,997 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Heilpraxis für Immunsystemstärkung, Darmgesundheit &amp; Stressdiagnostik in München – Dr. rer. nat. Simone Toelstede.">
+<link rel="icon" href="img/logo.png">
+<title>Heilpraxis Toelstede</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Mulish:wght@400;600;700&family=Newsreader:opsz,wght@6..72,400&display=swap">
+<style>
+/* Layout: ruhige Einspalten-Seiten mit großzügigem Weißraum, Header sticky, Inhalte als Ansichten (Hash-Navigation) */
+:root{
+  --bg:#FBF7F1; --surface:#FFFFFF; --sand:#F3EADD; --ink:#454C54; --muted:#5D646B;
+  --bronze:#A9804A; --accent-text:#86622F; --btn:#8A6531; --doc:#107ACA; --doc-d:#0B66AD; --on-btn:#FFFFFF; --line:#E6DCCD;
+  --orange:#E3A15C; --grey:#A9AFB6; --head-ink:#454C54; --footer:#F3EADD; --on-footer:#454C54;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --label:"Josefin Sans","Helvetica Neue",Arial,sans-serif;
+  --body:"Mulish","Helvetica Neue",Arial,sans-serif;
+}
+:root{color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.7 var(--body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;font-size-adjust:.45;letter-spacing:0;color:var(--head-ink);line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6vw,4rem)}
+h2{font-size:clamp(1.8rem,3.6vw,2.5rem)}
+h3{font-size:1.5rem}
+p{margin:0 0 1em;max-width:68ch}
+a{color:var(--accent-text)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font:600 .78rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:3px;border-radius:4px}
+
+/* Buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.5em;font:400 .95rem/1 var(--label);letter-spacing:.1em;text-decoration:none;background:var(--orange);color:#3A2A14;padding:1.15em 2em;border-radius:50px;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.btn::after{content:"";position:absolute;inset:4px;border-radius:50px;border:1.5px solid rgba(58,42,20,.45);transition:inset .3s,border-color .3s;pointer-events:none}
+.btn:hover{transform:translateY(-2px);background:#D9923F}
+.btn:hover::after{inset:2px;border-color:rgba(58,42,20,.8)}
+.btn.ghost{background:transparent;color:var(--accent-text);box-shadow:inset 0 0 0 1.5px var(--orange)}
+.btn.ghost::after{border-color:rgba(227,161,92,.5)}
+.btn.ghost:hover{background:rgba(227,161,92,.18)}
+.btn.ghost:hover::after{border-color:var(--orange)}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:80px;max-width:1360px}
+.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--accent-text);white-space:nowrap;flex:none;margin-right:clamp(1rem,4vw,4rem)}
+.brand span{font:400 1.5rem/1 var(--display);padding-bottom:.14em;letter-spacing:.005em}
+nav.main{display:flex;align-items:center;gap:clamp(1rem,1.7vw,1.9rem);margin-left:auto}
+nav.main a,nav.main .dd>button{font:600 .8rem/1 var(--label);letter-spacing:.1em;white-space:nowrap;display:inline-flex;align-items:center;gap:.45em;position:relative;text-transform:uppercase;color:var(--ink);text-decoration:none;background:none;border:0;padding:.6rem 0;cursor:pointer}
+nav.main a:hover,nav.main .dd>button:hover,nav.main a.on{color:var(--accent-text)}
+nav.main>a::after,nav.main .dd>button::before{content:"";position:absolute;left:0;right:0;bottom:.15rem;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav.main>a:hover::after,nav.main>a.on::after{transform:scaleX(1)}
+.dd>button .chev{width:.55em;height:.55em;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.dd:hover>button .chev,.dd:focus-within>button .chev{transform:rotate(225deg)}
+.dd::after{content:"";position:absolute;left:0;right:0;top:100%;height:10px}
+.dd{position:relative}
+.dd .menu{position:absolute;left:-1rem;top:calc(100% + 6px);min-width:220px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.6rem;display:none;box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.dd:hover .menu,.dd:focus-within .menu{display:block}
+.dd .menu a{display:block;padding:.6rem .8rem;border-radius:8px;text-transform:none;letter-spacing:.02em;font-size:.95rem}
+.dd .menu a:hover{background:var(--sand)}
+.top .btn{padding:1.05em 1.7em;font-size:.8rem;white-space:nowrap;flex:none;text-transform:uppercase;letter-spacing:.12em}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;color:var(--ink);cursor:pointer}
+@media (max-width:1400px){
+  .burger{display:block;margin-left:auto}
+  nav.main{position:absolute;left:0;right:0;top:100%;background:var(--surface);flex-direction:column;align-items:stretch;gap:0;padding:.5rem max(16px,env(safe-area-inset-left,0px)) 1.2rem;border-bottom:1px solid var(--line);display:none;max-height:calc(100vh - 80px);overflow:auto}
+  nav.main.open{display:flex}
+  nav.main>a::after,nav.main .dd>button::before{display:none}
+  nav.main a,nav.main .dd>button{padding:.9rem 0;border-bottom:1px solid var(--line);text-align:left;width:100%}
+  .dd .menu{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 1rem;background:none}
+  .top .btn.hdr{display:none}
+}
+
+/* Hintergründe: einfarbig im Wechsel mit Textur */
+:root{--tex-bg:#FAF5EC}
+.page-head,.bg-tex{background-color:#F9F3E8;background-image:url(img/tex-papier-fein.png);background-size:512px 512px}
+section.band.bg-white{background:var(--surface);border-block:1px solid var(--line)}
+section.band.bg-sand{background:var(--sand);border-block:1px solid var(--line)}
+section.band.bg-tex{border-block:1px solid var(--line)}
+.bg-sand .card,.bg-sand .news a{background:var(--surface)}
+
+@keyframes texdrift{from{background-position:0 0}to{background-position:640px 640px}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(1.2deg)}}
+.hero,.page-head,.bg-tex,.logos{animation:none}
+.hero img.emblem{animation:floaty 8s ease-in-out infinite;will-change:transform}
+@media (prefers-reduced-motion:reduce){.hero,.page-head,.bg-tex,.logos,.hero img.emblem{animation:none!important}}
+
+/* Views */
+.view{display:none}.view.active{display:block}
+
+/* Hero */
+.hero{border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding-block:clamp(3rem,8vw,6rem)}
+.hero p.sub{font-size:1.2rem;margin:1.2rem 0 2rem;color:var(--muted)}
+.hero .emblem{width:100%;max-width:440px;justify-self:center}
+.cta-row{display:flex;gap:.9rem;flex-wrap:wrap}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;gap:1.2rem;text-align:center;padding-block:1.6rem 2.8rem}
+  .hero .emblem{max-width:min(210px,52vw);order:-1}
+  .hero h1{font-size:clamp(2.4rem,11vw,3.2rem)}
+  .hero p.sub{font-size:1.05rem;margin:1rem auto 1.7rem;max-width:30ch}
+  .hero .cta-row{flex-direction:column;align-items:stretch;max-width:300px;margin-inline:auto}
+  .hero .cta-row .btn{justify-content:center}
+}
+
+section.band{padding-block:clamp(3rem,7vw,5.5rem)}
+section.band.alt{background:var(--surface);border-block:1px solid var(--line)}
+.head{display:grid;gap:.9rem;margin-bottom:2.4rem}
+
+/* Leitbild */
+.leit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.leit blockquote{margin:0;font:clamp(1.5rem,3vw,2.1rem)/1.3 var(--display);color:var(--accent-text);border-top:3px solid var(--orange);padding-top:1.4rem}
+.leit .focus{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.chip{font:600 .8rem/1 var(--label);letter-spacing:.06em;border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:.55em 1em;border-radius:50px}
+@media (max-width:820px){.leit{grid-template-columns:1fr}}
+
+/* Fachgebiete */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.4rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.8rem;display:flex;flex-direction:column;gap:.8rem;min-width:0;text-decoration:none;color:inherit;transition:transform .25s,border-color .25s}
+a.card:hover{transform:translateY(-4px);border-color:var(--bronze)}
+.card .ico{width:46px;height:46px;border-radius:50%;background:var(--sand);display:grid;place-items:center}
+.card .ico svg{width:24px;height:24px;stroke:var(--accent-text);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+.card .more{margin-top:auto;font:600 .82rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);padding-top:.6rem}
+
+/* Über mich Teaser */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.portrait{aspect-ratio:3/4;max-width:100%;border-radius:200px 200px 24px 24px;background:linear-gradient(160deg,var(--sand),var(--line));display:grid;place-items:center;position:relative;overflow:hidden}
+.portrait span{position:absolute;bottom:1.2rem;font:600 .72rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:820px){.about{grid-template-columns:1fr}.portrait{max-width:300px}}
+
+/* Schritte */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem;counter-reset:s}
+.step{border-top:2px solid var(--bronze);padding-top:1.1rem;counter-increment:s}
+.step::before{content:counter(s);font:2.6rem/1 var(--display);color:var(--orange);display:block;margin-bottom:.4rem}
+.step h4{font-size:1.4rem;margin-bottom:.4rem}
+.step p{color:var(--muted);margin:0;font-size:.98rem}
+
+/* Bewertung */
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(1.6rem,4vw,3rem);max-width:880px;margin:0 auto}
+.quote .stars{color:var(--orange);letter-spacing:.2em;font-size:1.2rem}
+.quote p{max-width:none;font-size:1.02rem}
+.quote cite{font:600 .85rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase;font-style:normal;color:var(--accent-text)}
+
+/* Aktuelles */
+.news{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+.news a{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;min-width:0;transition:transform .25s,border-color .25s}
+.news a:hover{transform:translateY(-4px);border-color:var(--bronze)}
+.news .tag{background:var(--sand);display:flex;align-items:flex-end;padding:1rem 1.4rem;font:600 .72rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);border-bottom:3px solid var(--orange)}
+.news .body{padding:1.4rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.news h3{font-size:1.3rem;color:var(--ink)}
+.news p{margin:0;color:var(--muted);font-size:.95rem}
+.news .more{margin-top:auto;padding-top:.5rem;font:600 .8rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text)}
+
+/* Unterseiten */
+.page-head{border-bottom:1px solid var(--line)}
+.page-head .wrap{padding-block:clamp(2.6rem,6vw,4.5rem);display:grid;gap:1rem}
+.page-head p{font-size:1.15rem;color:var(--muted);margin:0}
+.crumb{font:600 .78rem/1 var(--label);letter-spacing:.14em;text-transform:uppercase}
+.crumb a{text-decoration:none}
+
+/* Hero der Leistungsseiten: Foto vollflächig unter hellem Schleier, Text zentriert, auf allen Seiten gleich */
+.shero{position:relative;isolation:isolate;overflow:hidden;background:var(--tex-bg);border-bottom:1px solid var(--line)}
+.shero .sbg{position:absolute;left:0;top:-18%;width:100%;height:136%;object-fit:cover;z-index:-2;will-change:transform;transform:translate3d(0,0,0)}
+.shero::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(249,243,235,.74)}
+.shero .wrap{--shh:clamp(420px,36vw,480px);min-height:var(--shh);display:grid;place-items:center;text-align:center;padding-block:clamp(2.6rem,7vw,5rem)}
+.shero .st{display:grid;gap:1.1rem;justify-items:center;max-width:680px}
+.shero .crumb,.shero .crumb a{color:var(--accent-text);line-height:1.6}
+.shero h1{color:var(--head,#454C54);text-wrap:balance}
+.shero .rule{width:54px;height:3px;background:var(--orange);border-radius:3px}
+.shero .st p{font-size:1.15rem;color:#454C54;margin:0;max-width:46ch}
+.shero .cta-row{margin-top:.4rem;justify-content:center}
+.shero .btn.ghost{color:#454C54;background:rgba(255,255,255,.45)}
+@media (max-width:820px){
+  .shero .wrap{min-height:0;padding-block:2.4rem 2.8rem}
+  .shero .cta-row{gap:.7rem}
+  .shero .cta-row .btn{padding-inline:1.4em}
+}
+.page{padding-block:clamp(2.5rem,6vw,4.5rem)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.prose h2,.prose h3{margin:2rem 0 .8rem}
+.prose h2:first-child,.prose h3:first-child{margin-top:0}
+.prose h3{font-size:1.5rem}
+.prose ul{padding:0;margin:0 0 1.4rem;list-style:none;display:grid;gap:.55rem;max-width:68ch}
+.prose li{position:relative;padding-left:1.6rem}
+.prose li::before{content:"";position:absolute;left:0;top:.72em;width:.6rem;height:.6rem;border-radius:50%;background:var(--orange)}
+.prose .hl{background:var(--sand);border-left:3px solid var(--orange);border-radius:0 14px 14px 0;padding:1.1rem 1.4rem;margin:0 0 1.4rem;max-width:68ch;font-weight:600}
+.side{position:sticky;top:96px;display:grid;gap:1.1rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem;display:grid;gap:.7rem}
+.panel h4{font-size:1.3rem}
+.panel p{margin:0;font-size:.95rem;color:var(--muted)}
+.facts{display:grid;gap:.5rem;font-size:.95rem}
+.facts div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed var(--line);padding-bottom:.5rem}
+.facts b{font-weight:700;text-align:right}
+.src{display:grid;gap:.4rem;padding:0;list-style:none;margin:0 0 1.4rem}
+.src li::before{display:none}.src li{padding:0}
+.soon{display:inline-block;font:1.6rem var(--display);color:var(--accent-text);border:1.5px solid var(--bronze);border-radius:50px;padding:.5rem 1.6rem;margin:.5rem 0 1.5rem}
+.ph{aspect-ratio:16/10;border-radius:18px;background:var(--sand);border:1px dashed var(--bronze);display:grid;place-items:center;color:var(--muted);font:600 .72rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;margin:1.2rem 0;max-width:100%}
+
+/* Vita */
+.vita{display:grid;gap:0;border-left:2px solid var(--line);margin:0 0 2rem .4rem;padding:0;list-style:none}
+.vita li{display:grid;grid-template-columns:120px 1fr;gap:1rem;padding:.55rem 0 .55rem 1.4rem;position:relative}
+.vita li::before{content:"";position:absolute;left:-.42rem;top:1.1rem;width:.7rem;height:.7rem;background:var(--orange);border-radius:50%;padding:0}
+.vita b{font:600 .85rem/1.9 var(--label);letter-spacing:.06em;color:var(--accent-text)}
+@media (max-width:560px){.vita li{grid-template-columns:1fr;gap:0}}
+.prose .vita li::before{top:1.15rem;left:-.42rem}
+.prose ul.vita{border-left:2px solid var(--line);gap:0;margin:0 0 2rem .4rem;max-width:none}
+.prose .vita li{padding:.55rem 0 .55rem 1.4rem}
+.prose ul.src{gap:.4rem}
+
+/* Preise */
+.pintro{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:1.2rem}
+.pi{background:var(--surface);border:1px solid var(--line);border-radius:22px 22px 22px 6px;padding:1.7rem;display:flex;flex-direction:column;gap:.7rem;min-width:0;position:relative}
+.pi .pn{font:600 .78rem/1 var(--label);letter-spacing:.16em;color:var(--accent-text)}
+.pi h3{font-size:1.45rem;margin:0}
+.pi p{margin:0;font-size:.95rem;color:var(--ink)}
+.pi .btn{margin-top:auto;width:fit-content}
+.pi-warm{background:rgba(227,161,92,.2);border-color:rgba(227,161,92,.45)}
+.pchips{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2.8rem}
+.pchips .chip{white-space:normal;line-height:1.25}
+@media(max-width:980px){.pintro{grid-template-columns:1fr}}
+.pz-hero{background:#F9F3E8 url(img/tex-papier-fein.png);background-size:512px;border-bottom:1px solid var(--line);overflow:hidden}
+.pz-hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;padding-block:clamp(2.4rem,6vw,4.2rem)}
+.pz-ht .crumb{font:600 .74rem/1.6 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.pz-ht .crumb a{color:var(--accent-text)}
+.pz-ht h1{margin:.4rem 0 .8rem}
+.pz-ht .rule{display:block;width:54px;height:3px;background:var(--orange);border-radius:3px;margin-bottom:1rem}
+.pz-ht p{margin:0;font-size:1.12rem;max-width:36ch;color:var(--muted)}
+.pz-coins{position:relative;height:230px}
+.pz-coins .c{position:absolute;display:grid;place-items:center;font:400 clamp(1.4rem,3vw,2rem)/1 var(--display);color:#3a2a14;background:radial-gradient(circle at 30% 25%,#F2C28A,var(--orange));box-shadow:inset 0 0 0 5px rgba(255,255,255,.35),0 14px 30px -12px rgba(134,98,47,.45);animation:morph 9s ease-in-out infinite,floaty 7s ease-in-out infinite}
+.pz-coins .c1{width:96px;height:96px;left:6%;top:8%;animation-delay:0s,-1s}
+.pz-coins .c2{width:120px;height:120px;left:34%;top:46%;background:radial-gradient(circle at 30% 25%,#fff,#E8E5DF);animation-delay:-3s,-2.4s}
+.pz-coins .c3{width:150px;height:150px;left:56%;top:0;animation-delay:-5s,-4s}
+.pz-coins .c4{width:84px;height:84px;left:80%;top:58%;background:radial-gradient(circle at 30% 25%,#F8E3C6,#EBC693);animation-delay:-2s,-5.5s}
+.pz{padding-bottom:7rem}
+.pz-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.6rem}
+.pz-chips .chip{white-space:normal;line-height:1.25}
+.pz-filter{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.pz-filter button{font:600 .78rem/1 var(--label);letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--orange);background:transparent;color:var(--ink);padding:.95em 1.5em;border-radius:50px;cursor:pointer;transition:background .2s,transform .2s}
+.pz-filter button:hover{transform:translateY(-1px)}
+.pz-filter button[aria-selected=true]{background:var(--orange);color:#3a2a14}
+.pz-sec{margin-bottom:2.8rem}
+.pz-sec[hidden]{display:none}
+.pz-sh{display:flex;align-items:baseline;gap:.9rem;margin-bottom:1.1rem}
+.pz-sh .n{font:400 clamp(2.4rem,5vw,3.4rem)/1 var(--display);color:var(--orange)}
+.pz-sh h2{margin:0;font-size:clamp(1.5rem,3vw,2rem)}
+.pz-sh p{margin:0;color:var(--muted);font-size:.95rem}
+.pz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+.pz-card{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:26px 26px 26px 8px;padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;min-width:0;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s,background .25s}
+.pz-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(69,76,84,.45)}
+.pz-card.on{border-color:var(--orange);background:#FFF9F1;box-shadow:0 18px 36px -22px rgba(227,161,92,.7)}
+.pz-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.pz-ic{width:46px;height:46px;border-radius:50%;background:rgba(227,161,92,.22);color:var(--accent-text);display:grid;place-items:center;flex:none;transition:background .25s,color .25s,transform .4s}
+.pz-card.on .pz-ic{background:var(--orange);color:#3a2a14;transform:rotate(-8deg) scale(1.06)}
+.pz-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pz-add{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--orange);background:transparent;color:var(--ink);font:400 1.5rem/1 var(--body);cursor:pointer;display:grid;place-items:center;transition:transform .3s,background .2s;flex:none}
+.pz-card.on .pz-add{background:var(--orange);transform:rotate(45deg)}
+.pz-card h3{font-size:1.35rem;margin:.3rem 0 0}
+.pz-sub{font-size:.9rem;color:var(--muted)}
+.pz-amt{font:400 2.5rem/1 var(--display);color:var(--accent-text);margin-top:.4rem}
+.pz-amt small{font:600 .8rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:.35rem}
+.pz-note{font-size:.85rem;color:var(--muted)}
+.pz-vars{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem}
+.pz-vars button{font:600 .72rem/1.2 var(--label);letter-spacing:.06em;border:1px solid var(--line);background:#fff;color:var(--muted);padding:.6em 1em;border-radius:50px;cursor:pointer;text-align:left;transition:all .2s}
+.pz-vars button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pz-card details{margin-top:.4rem;font-size:.9rem;color:var(--muted)}
+.pz-card summary{cursor:pointer;color:var(--accent-text);font-weight:600}
+.pz-card ul{margin:.5rem 0 0;padding:0;list-style:none;display:grid;gap:.3rem}
+.pz-card li{padding:0}.pz-card li::before{display:none}
+.pz-info{margin-top:1rem;padding-top:2rem;border-top:1px solid var(--line)}
+.pz-info h2{font-size:1.6rem;margin:0 0 1rem}
+.pz-acc{display:grid;gap:.7rem;max-width:860px}
+.pz-acc details{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1rem 1.3rem}
+.pz-acc summary{cursor:pointer;font:600 .84rem/1.3 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text)}
+.pz-acc p{margin:.8rem 0 .6rem}
+.pz-bar{position:fixed;left:50%;bottom:18px;z-index:40;transform:translate(-50%,140%);width:min(760px,calc(100% - 210px));background:var(--ink);color:#fff;border-radius:30px 30px 30px 8px;padding:.9rem 1.2rem .9rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;box-shadow:0 22px 40px -18px rgba(0,0,0,.5);transition:transform .45s cubic-bezier(.2,.9,.3,1.1)}
+.pz-bar.show{transform:translate(-50%,0)}
+.pz-bar.pop{animation:pzpop .4s}
+@keyframes pzpop{40%{transform:translate(-50%,-6px)}}
+.pz-bl{display:grid;gap:.1rem;min-width:0}
+.pz-bl b{white-space:nowrap;font:600 .72rem/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.pz-bl span{font:400 clamp(1.7rem,4vw,2.2rem)/1.1 var(--display)}
+.pz-bl small{font-size:.72rem;opacity:.7}
+.pz-br{display:flex;gap:.7rem;align-items:center;flex:none}
+.pz-x{background:none;border:0;color:#fff;opacity:.75;font:600 .74rem/1 var(--label);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:underline}
+@media(max-width:820px){.pz-hero .wrap{grid-template-columns:1fr}.pz-coins{height:170px}.pz-coins .c3{width:110px;height:110px;left:52%}.pz-coins .c2{width:90px;height:90px;left:28%;top:50%}.pz-coins .c4{left:78%;top:55%;width:64px;height:64px}.pz-coins .c1{width:76px;height:76px}.pz-bar{width:calc(100% - 100px);left:16px;transform:translate(0,140%);padding:.8rem 1rem}.pz-bar.show{transform:none}.pz-bar.pop{animation:none}.pz-bl small{display:none}.pz-br .btn{padding:.9em 1.1em}.pz-x{display:none}}
+@media(prefers-reduced-motion:reduce){.pz-coins .c{animation:none}.pz-bar{transition:none}}
+.prices{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem;display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.price h3{font-size:1.35rem}
+.price .sub{font-size:.9rem;color:var(--muted)}
+.price .amt{font:2.2rem/1 var(--display);color:var(--accent-text);margin-top:.5rem}
+.price ul{margin:.6rem 0 0;padding:0;list-style:none;font-size:.9rem;color:var(--muted);display:grid;gap:.3rem}
+.price li{padding:0}.price li::before{display:none}
+.price small{color:var(--muted);font-size:.85rem}
+
+/* Kontakt */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-bottom:2.4rem}
+.cbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem;display:grid;gap:.5rem;min-width:0}
+.cbox .val{font:600 1.15rem/1.4 var(--body);color:var(--ink);overflow-wrap:anywhere;user-select:all}
+.copy{justify-self:start;font:600 .78rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase;background:none;border:1px solid var(--bronze);color:var(--accent-text);border-radius:50px;padding:.6em 1.1em;cursor:pointer}
+
+/* Footer */
+.logos{background-color:#F9F3E8;background-image:url(img/tex-papier-fein.png);background-size:512px 512px;animation:none!important;border-top:1px solid var(--line);padding-block:clamp(2.6rem,6vw,4rem)}
+.logos .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.2rem;text-align:center}
+.logos h4{font:600 .8rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:1.2rem}
+.logos p{margin:0 auto 1.2rem;font-size:.95rem;color:var(--muted);max-width:30ch}
+.logos .row{display:flex;flex-direction:column;align-items:center;gap:2.1rem;margin-top:.4rem}
+.logos .row a{width:min(190px,100%);padding:.35rem 0}
+.logos img{display:block;height:auto;max-width:100%}
+.logos a{display:inline-block;transition:transform .25s}.logos a:hover{transform:translateY(-3px)}
+.viz{margin:1.8rem 0;padding:1.3rem 1.4rem 1.1rem;border-radius:22px 22px 22px 6px;background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden}
+.viz svg{width:100%;height:auto;display:block}
+.viz figcaption{margin-top:.8rem;font-size:.92rem;color:var(--muted)}
+.viz figcaption small{display:block;opacity:.75;margin-top:.15rem;font-size:.78rem}
+.viz .vt{font:600 11px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;fill:var(--accent-text)}
+.viz .vt2{fill:#7B828A}
+.viz .grid line{stroke:#D9D5CC;stroke-width:1}
+.viz .ln{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000}
+.viz .ln.a,.viz .ln.h{stroke:var(--orange);stroke-width:2.6}
+.viz .ln.b,.viz .ln.s{stroke:var(--grey);stroke-width:2.2}
+.viz .rp{fill:var(--orange);opacity:0}
+.viz.in .ln.a{animation:vdraw 9s ease-in-out infinite}
+.viz.in .ln.b{animation:vdraw 9s ease-in-out infinite .4s}
+.viz.in .rp{animation:vpop 9s ease-out infinite}
+.viz.in .ln.s{animation:vdraw 9s ease-in-out infinite}
+.viz.in .ln.h{animation:vdraw 9s ease-in-out infinite .6s}
+@keyframes vdraw{0%{stroke-dashoffset:1000;opacity:1}40%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes vpop{0%,38%{opacity:0;transform:scale(.4)}46%,85%{opacity:.9;transform:scale(1)}100%{opacity:0}}
+.viz .rp{transform-box:fill-box;transform-origin:center}
+.viz .mv{fill:#fff;stroke:var(--orange);stroke-width:3;offset-distance:0%;opacity:0}
+.viz.in .mv{animation:vmove 9s ease-in-out infinite .6s}
+@keyframes vmove{0%{offset-distance:0%;opacity:0}4%{opacity:1}40%{offset-distance:100%;opacity:1}85%{offset-distance:100%;opacity:1}100%{offset-distance:100%;opacity:0}}
+.viz.lab{padding-top:1.5rem}
+.viz .vr{display:grid;grid-template-columns:minmax(104px,150px) 1fr;align-items:center;gap:.9rem;margin-bottom:1.15rem;font:600 .74rem/1.2 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+.viz .track{position:relative;height:10px;border-radius:9px;background:#EEE9E0}
+.viz .band{position:absolute;top:0;height:100%;border-radius:9px;background:rgba(227,161,92,.34)}
+.viz .dot{position:absolute;top:50%;left:6%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(227,161,92,.25);opacity:0}
+.viz.in .dot{animation:vdot 8s cubic-bezier(.5,0,.2,1) infinite var(--d)}
+@keyframes vdot{0%{left:6%;opacity:0}6%{opacity:1}22%,86%{left:var(--x);opacity:1;box-shadow:0 0 0 4px rgba(227,161,92,.25)}92%{left:var(--x);opacity:1;box-shadow:0 0 0 10px rgba(227,161,92,0)}100%{left:var(--x);opacity:0}}
+.viz .sweep{position:absolute;top:0;bottom:0;width:90px;left:-90px;background:linear-gradient(90deg,transparent,rgba(227,161,92,.14),transparent);pointer-events:none}
+.viz.in .sweep{animation:vsweep 8s ease-in-out infinite}
+@keyframes vsweep{0%{left:-90px}30%,100%{left:100%}}
+@media (prefers-reduced-motion:reduce){.viz .ln{stroke-dashoffset:0;animation:none!important}.viz .rp{opacity:.9;animation:none!important}.viz .dot{left:var(--x);opacity:1;animation:none!important}.viz .mv,.viz .sweep{display:none}}
+footer{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding-block:clamp(2.8rem,6vw,4.4rem) 1.6rem;font-size:.95rem}
+footer>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+footer::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(40,46,52,.78),rgba(40,46,52,.92))}
+footer a{color:#fff}
+footer p{margin:0 0 .3rem;opacity:.92}
+footer .flab{display:block;font:600 .78rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:.8rem}
+footer .fh{font:400 clamp(2rem,4.6vw,3.2rem)/1.1 var(--display);max-width:18ch;margin:0;color:#fff}
+footer .fh em{font-style:italic;color:var(--orange)}
+.ftiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:2rem}
+.ftiles .t{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:22px 22px 22px 6px;padding:1.4rem;display:grid;gap:.5rem;text-decoration:none;align-content:start;transition:background .25s,transform .25s}
+.ftiles .t:hover{background:rgba(255,255,255,.17);transform:translateY(-2px)}
+.ftiles .ic{width:46px;height:46px;border-radius:50%;background:var(--orange);color:#3a2a14;display:grid;place-items:center;margin-bottom:.4rem}
+footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ftiles .flab{margin:0}
+.ftiles b{font:400 1.3rem/1.25 var(--display);overflow-wrap:anywhere}
+.ftiles .t span:last-child{opacity:.85;font-size:.9rem}
+.frows{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem;margin-top:2.2rem;font-size:.93rem}
+.fbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem 2rem;border-top:1px solid rgba(255,255,255,.2);margin-top:2.2rem;padding-top:1.1rem;font-size:.85rem}
+.fbot>span{opacity:.85}
+.fbot .legal{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center}
+.fbot .soc{display:inline-flex;gap:.5rem}
+.fbot .soc a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;opacity:.8;transition:opacity .2s,border-color .2s,color .2s}
+.fbot .soc a:hover{opacity:1;border-color:var(--orange);color:var(--orange)}
+.fbot .soc svg{width:17px;height:17px}
+#kontakt-info{border-radius:26px;transition:box-shadow .6s}
+#kontakt-info.flash{animation:kflash 2.2s ease-out}
+@keyframes kflash{0%,35%{box-shadow:0 0 0 8px rgba(227,161,92,.45)}100%{box-shadow:0 0 0 8px rgba(227,161,92,0)}}
+.cw{position:fixed;right:0;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:.7rem}
+.cw a:not(.fab),.cw button{width:56px;height:56px;border-radius:50%;border:0;display:grid;place-items:center;color:#fff;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.22);text-decoration:none;position:relative;transition:transform .2s}
+.cw a:not(.fab):hover,.cw button:hover{transform:scale(1.07)}
+.cw svg{width:28px;height:28px;fill:currentColor}
+.cw .wa,.cw .main{background:#25D366}.cw .wa{width:48px;height:48px}.cw .main .i-x{display:none}.cw .main[aria-expanded="true"] .i-x{display:block;width:26px;height:26px}.cw .main[aria-expanded="true"] .i-chat{display:none}.cw .ph{background:var(--bronze);width:48px;height:48px}.cw .ml{background:var(--grey);width:48px;height:48px}
+.cw .more,.cw>.main{margin-right:max(16px,env(safe-area-inset-right,0px))}
+.cw .more{display:flex;flex-direction:column;gap:.7rem;align-items:flex-end}
+.cw .more[hidden]{display:none}
+.cw .tip{position:absolute;right:calc(100% + .7rem);top:50%;transform:translateY(-50%);background:var(--ink);color:#fff;font:400 .8rem/1 var(--label);letter-spacing:.06em;padding:.6rem .8rem;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.cw a:hover .tip,.cw a:focus-visible .tip{opacity:1}
+
+/* Start-Hero: Lichtwald */
+.hero.hero-wald{position:relative;isolation:isolate;overflow:hidden;background:#1d2a1a;animation:none;border-bottom:0}
+.hero-wald .sbg{position:absolute;left:0;top:-18%;width:100%;height:136%;object-fit:cover;z-index:-2;will-change:transform;transform:translate3d(0,0,0)}
+.hero-wald::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(20,32,18,.78) 0%,rgba(20,32,18,.5) 48%,rgba(20,32,18,.06) 100%)}
+.hero-wald .wrap{grid-template-columns:1fr;min-height:clamp(480px,46vw,580px);align-content:center}
+.hero-wald .hin{max-width:560px}
+.hero-wald .label{color:#F2C58E}
+.hero-wald h1{color:#fff}
+.hero-wald p.sub{color:rgba(255,255,255,.92)}
+.hero-wald .btn.ghost{color:#fff;background:transparent}
+@media (max-width:820px){
+  .hero-wald::before{background:linear-gradient(180deg,rgba(20,32,18,.72),rgba(20,32,18,.5))}
+  .hero-wald .wrap{min-height:0;padding-block:3rem 3.2rem}
+  .hero-wald .hin{max-width:none}
+}
+
+/* Foto-Bubble (Kiesel): Porträt in weicher Form, orange Fläche und graue Kontur dahinter */
+.bub{position:relative;width:min(100%,460px);aspect-ratio:1/1.12;isolation:isolate;justify-self:center;margin:20px 22px 20px 26px}
+.bub img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;position:relative;z-index:2;border-radius:58% 42% 52% 48%/54% 46% 54% 46%;animation:morph 14s ease-in-out infinite}
+.bub::before,.bub::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
+.bub::before{background:var(--orange);border-radius:46% 54% 44% 56%/52% 56% 44% 48%;transform:translate(18px,16px) rotate(2deg);z-index:0}
+.bub::after{border:2px solid var(--grey);border-radius:54% 46% 56% 44%/46% 54% 46% 54%;transform:translate(-22px,-18px);z-index:0}
+@keyframes morph{0%,100%{border-radius:58% 42% 52% 48%/54% 46% 54% 46%}50%{border-radius:46% 54% 44% 56%/48% 56% 44% 52%}}
+@media (max-width:820px){.bub{width:min(86%,360px);margin:22px auto 18px;transform:translateX(-10px)}}
+@media (prefers-reduced-motion:reduce){.bub img{animation:none}}
+
+/* Hyperthermie-Hero: Foto ist schon hell, deshalb leichterer Schleier */
+.shero-dome::before{background:linear-gradient(90deg,rgba(249,243,235,.94) 0%,rgba(249,243,235,.82) 38%,rgba(249,243,235,.12) 72%,rgba(249,243,235,0) 100%)}
+.shero-dome .wrap{text-align:left;place-items:center start}
+.shero-dome .st{justify-items:start;max-width:520px}.shero-dome .cta-row{justify-content:flex-start}
+@media (max-width:820px){.shero-dome::before{background:rgba(249,243,235,.78)}.shero-dome .wrap{text-align:center;place-items:center}.shero-dome .st{justify-items:center}.shero-dome .cta-row{justify-content:center}}
+
+/* Medkey-Hero: Gerät links, Text rechts, heller Papier-Hintergrund */
+.shero.shero-dev{background:#F9F3E8 url(img/tex-papier-fein.png) 0 0/512px 512px}
+.shero.shero-dev::before{display:none}
+.shero-dev .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,4vw,4rem);place-items:center;text-align:left;min-height:clamp(380px,38vw,500px)}
+.shero-dev .dev{position:relative;width:100%;max-width:520px;justify-self:center}
+.shero-dev .dev::before{content:"";position:absolute;inset:8% 4% 2%;background:radial-gradient(ellipse at 50% 60%,rgba(255,255,255,.95),rgba(255,255,255,0) 70%);z-index:0}
+.shero-dev .dev.dev-s{max-width:400px}
+.shero-dev .dev img{position:relative;z-index:1;width:100%;height:auto;display:block;filter:drop-shadow(0 22px 24px rgba(69,76,84,.18))}
+.shero-dev .st{justify-items:start;max-width:520px}
+.shero-dev .cta-row{justify-content:flex-start}
+@media (max-width:820px){
+  .shero-dev .wrap{grid-template-columns:1fr;text-align:center;gap:1rem;padding-block:2rem 2.6rem}
+  .shero-dev .dev{max-width:340px}
+  .shero-dev .st{justify-items:center}.shero-dev .cta-row{justify-content:center}
+}
+
+/* Alle Leistungs-Heroes exakt gleich hoch (Desktop/Tablet) */
+@media (min-width:821px){.shero .wrap{height:var(--shh);min-height:0;padding-block:1.6rem}.shero-dev .dev img{max-height:calc(var(--shh) - 3.2rem);width:auto;margin-inline:auto}.shero-dev .dev{display:grid;place-items:center}}
+@media (max-width:820px){.shero .wrap{height:500px;min-height:0;padding-block:1.4rem}.shero-dev .wrap{gap:.8rem;align-content:center}.shero-dev .dev{max-width:160px}.shero-dev .dev.dev-s{max-width:120px}}
+@media (max-width:560px){.cw .tip{display:none}}
+.fab{position:static;background:var(--doc);color:#fff;font:600 .78rem/1.2 var(--label);letter-spacing:.06em;text-decoration:none;padding:.9rem 1rem;border-radius:14px 0 0 14px;padding-right:max(1rem,env(safe-area-inset-right,0px));box-shadow:0 8px 24px rgba(16,122,202,.35);transition:padding .2s,background .2s}
+.fab:hover{background:var(--doc-d);padding-left:1.3rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.brandmark{height:54px;width:auto;display:block;flex:none;position:relative;top:-2.7px;filter:saturate(1.25) contrast(1.2)}
+.hero img.emblem{height:auto}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+.news .th{width:100%;aspect-ratio:8/5;object-fit:cover;display:block}
+.news .tag{height:auto;padding:.8rem 1.4rem}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Heilpraxis Toelstede, Startseite">
+      <img src="img/logo.png" alt="" width="40" height="38" class="brandmark">
+      <span>Heilpraxis Toelstede</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <nav class="main" id="nav" aria-label="Hauptnavigation">
+      <a href="#home" data-v="home">Home</a>
+      <a href="#ueber-mich" data-v="ueber-mich">Über mich</a>
+      <div class="dd"><button type="button">Diagnostik<i class="chev"></i></button>
+        <div class="menu"><a href="#labor">Labordiagnostik</a><a href="#stress">Stressdiagnostik</a></div></div>
+      <div class="dd"><button type="button">Therapieangebote<i class="chev"></i></button>
+        <div class="menu"><a href="#ihht">IHHT</a><a href="#hyperthermie">Hyperthermie</a><a href="#rifetech">Rifetech Plasma</a><a href="#medkey">Medkey Therapie</a><a href="#infusion">Infusionstherapie</a><a href="#darm">Darmgesundheit</a><a href="#ohr">Ohrakupunktur</a></div></div>
+      <a href="#preise" data-v="preise">Preise</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#aktuelles">Aktuelles</a>
+    </nav>
+    <a class="btn hdr" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<div class="view active" id="v-home">
+  <div class="hero hero-wald"><img class="sbg" src="img/start-wald.jpg" alt="Wald mit Lichtstrahlen" style="object-position:50% 50%" width="1800"><div class="wrap">
+    <div class="hin">
+      <span class="label">Heilpraktikerin · München</span>
+      <h1 style="margin-top:1rem">Heilpraxis<br>Toelstede</h1>
+      <p class="sub">Heilpraxis für Immunsystemstärkung, Darmgesundheit &amp; Stressdiagnostik in München</p>
+      <div class="cta-row">
+        <a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Jetzt Termin buchen</a>
+        <a class="btn ghost" href="#ueber-mich">Über mich</a>
+      </div>
+    </div>
+  </div></div>
+
+  <section class="band bg-white"><div class="wrap leit">
+    <div>
+      <span class="label">Leitbild</span>
+      <h2 style="margin:1rem 0 1.4rem">Gesundheit in die eigene Hand nehmen</h2>
+      <blockquote>Du selbst bist dein eigener Heiler, deine eigene Heilerin.</blockquote>
+      <div class="focus">
+        <span class="chip">Magen-/Darmerkrankungen</span><span class="chip">Allergien</span><span class="chip">Autoimmunerkrankungen</span><span class="chip">Hormonstörungen</span><span class="chip">Burn-out</span><span class="chip">Fatigue</span><span class="chip">Post-/Long-COVID</span><span class="chip">Prävention</span>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Ich möchte Menschen begleiten, die bereits auf dem Weg sind oder sich auf den Weg machen wollen, ihre eigene Gesundheit in die Hand zu nehmen.</p>
+      <p>Dazu möchte ich betonen: Ich sehe mich nicht als Heilerin in dem Sinne, dass ich deine Beschwerden verbessere oder „wegnehme“. Du selbst bist dein eigener Heiler, deine eigene Heilerin. Das wiederum ist eine <b>Verantwortung</b>, die wir uns bewusst machen sollten. Wir schauen gemeinsam, wie wir deinen Körper, deinen Geist und deine Seele unterstützen und deine <b>Selbstheilungskräfte</b> aktivieren oder weiter ankurbeln können.</p>
+      <p>Da dies ganz unterschiedlich ist, so wie wir Menschen auch sehr unterschiedlich und individuell sind, habe ich verschiedene Therapieansätze, die begleitend eingesetzt werden können.</p>
+      <p>Basis meiner Arbeit ist das <b>Immunsystem</b>. Ich bin tief davon überzeugt, dass die Ursachen gewisser gesundheitsbeeinträchtigender Symptome und der meisten Krankheiten Ausdruck einer Überlastung des Immunsystems sind. Diese Überlastungen sind mannigfaltig, allen voran aber sind <b>Stress</b> und der <b>Darmzustand</b> von übergeordneter Bedeutung.</p>
+    </div>
+  </div></section>
+
+  <section class="band bg-sand"><div class="wrap">
+    <div class="head"><span class="label">Meine Fachgebiete</span><h2>Womit ich dich begleite</h2></div>
+    <div class="grid">
+      <a class="card" href="#ihht"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 19 9 7l4 7 3-5 6 10z"/></svg></div><h3>IHHT – Intermittierende Sauerstofftherapie</h3><p>Die IHHT, auch als <b>Höhentraining</b> bekannt, setzt an der Basis unseres Körpers an: unseren Zellen, genauer gesagt den Mitochondrien. Ein schwankender Sauerstoffgehalt setzt die Kraftwerke der Zelle unter akuten Stress, dem alte und beschädigte nicht standhalten.</p><span class="more">Mehr lesen →</span></a>
+      <a class="card" href="#darm"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 12a2 2 0 1 1 4 0 4 4 0 1 1-8 0 6 6 0 1 1 12 0"/></svg></div><h3>Darmgesundheit</h3><p>Unser Darm spielt eine der zentralsten Rollen in unserem Körper. Er ist nicht nur für Verdauung und Resorption zuständig, sondern auch Teil unseres Immunsystems und damit an der Entstehung chronischer und autoimmuner Geschehen beteiligt. Außerdem beeinflusst er unsere Hormone und viele Stoffwechselprozesse.</p><span class="more">Mehr lesen →</span></a>
+      <a class="card" href="#infusion"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3S5 11 5 15a7 7 0 0 0 14 0C19 11 12 3 12 3z"/></svg></div><h3>Infusionstherapie</h3><p>Infusionen sind eine <b>einfache und effektive</b> Therapie, um Mängel direkt auszugleichen. Chronische Krankheiten, aber auch Dauerstress, mangelnde Bewegung, Rauchen, Stadtluft oder Fast Food verlangen unserem Körper verstärkt Nährstoffe ab.</p><span class="more">Mehr lesen →</span></a>
+      <a class="card" href="#stress"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 12h5l2-6 4 12 2-6h7"/></svg></div><h3>Stressdiagnostik</h3><p>Stress ist die Ursache vieler Krankheiten, darunter Bluthochdruck, Insulinresistenz und Fettleber bis hin zu Autoimmungeschehen. Subjektiv lässt sich der Stresszustand schwer einschätzen. Diagnostisch nutze ich die <b>HRV-Messung</b>, die einen objektiven Eindruck des eigenen Nervensystems wiedergibt.</p><span class="more">Mehr lesen →</span></a>
+      <a class="card" href="#kontakt"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21C7 17 4 14 4 10a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 4-3 7-8 11z"/></svg></div><h3>Manuelle Therapieformen</h3><p>Durch Berührung und „Zuhören“ entsteht ein Dialog von Körper zu Körper, ohne Worte und in achtsamer Weise. Jeder Mensch und jeder Körper ist einzigartig. Die Bedürfnisse des Körpers und der Seele dürfen sich ausdrücken, ohne den Verstand und ohne Filter. Für mich sind Cranio-Sacrale Behandlungen und die Faszienmassage wunderbare manuelle Therapieformen.</p><span class="more">Infogespräch vereinbaren →</span></a>
+      <a class="card" href="#ohr"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 21a4 4 0 0 0 4-4c0-3 4-3 4-8a6 6 0 0 0-12 0"/></svg></div><h3>Ohrakupunktur</h3><p>In der <b>Reflexzone Ohr</b> sind der ganze Mensch und jedes Organ abgebildet. So können Störungen, Schmerzen und Erkrankungen anhand dieser Zonen <b>unkompliziert und effektiv</b> unterstützend mitbehandelt werden. Die Akupunkturpunkte sind nur dann „aktiv“, also gut auffindbar und druckempfindlich, wenn das zugehörige Organ in seiner Funktion gestört ist.</p><span class="more">Mehr lesen →</span></a>
+    </div>
+    <p style="margin:2.4rem 0 0;font:1.5rem/1.3 var(--display);color:var(--accent-text);max-width:none;text-align:center">Die Balance aus Eigenverantwortung und bewusstem Leben ist der Schlüssel zu einem glücklicheren Leben.</p>
+  </div></section>
+
+  <section class="band bg-tex"><div class="wrap about">
+    <div class="bub"><img src="img/simone-portrait.jpg" alt="Dr. rer. nat. Simone Toelstede" loading="lazy"></div>
+    <div>
+      <span class="label">Über mich</span>
+      <h2 style="margin:1rem 0 1.4rem">(Er-)forschend</h2>
+      <p>(Er-)forschend – so würde ich eine meiner Lieblingseigenschaften beschreiben. Ich hatte schon immer den Drang, Dingen auf den Grund zu gehen. Ich freue mich heute jeden Tag, dass ich Menschen hin zu einer natürlichen, gesünderen und selbstverantwortlichen Lebensweise begleiten darf.</p>
+      <p>Es macht mir Spaß, gemeinsam zu forschen und herauszufinden, was „nicht rund läuft“, was der Körper ausdrücken und was angeschaut werden möchte.</p>
+      <a class="btn ghost" href="#ueber-mich">Mehr erfahren</a>
+    </div>
+  </div></section>
+
+  <section class="band bg-white"><div class="wrap">
+    <div class="head"><span class="label">Ablauf</span><h2>Therapie in wenigen Schritten</h2></div>
+    <div class="steps">
+      <div class="step"><h4>Anamnese</h4><p>Terminbuchung, Anamnesebogen, erstes Gespräch</p></div>
+      <div class="step"><h4>Diagnostik</h4><p>Durchführung von (weiterer) Diagnostik zur Abklärung der Ursache</p></div>
+      <div class="step"><h4>Therapieplan</h4><p>Erstellung eines individuellen Therapieplans</p></div>
+      <div class="step"><h4>Begleitung und Nachsorge</h4><p>Auf Basis des Therapieplans individuelle Begleitung und Anpassung</p></div>
+    </div>
+  </div></section>
+
+  <section class="band bg-tex"><div class="wrap">
+    <figure class="quote" style="margin-inline:auto">
+      <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+      <p style="margin-top:1rem">Das Besondere an Frau Dr. Simone Toelstede ist, dass sie in Lebensmittelchemie promoviert hat und in diesem Zweig einen sehr alternativen und eigenen Weg einnahm, bevor sie zur Heilpraktikerin wurde. Daher greift ihr Blick sehr tief, und ihre Wahrnehmung der individuellen Ursachen der Beschwerden fällt recht wissenschaftlich aus. Man spürt in jeder Sitzung ihr großes Engagement und die ganzheitliche Fürsorge ihrer Arbeitsweise.</p>
+      <p>Nach Blutanalysen erhielt ich von ihr sehr viel Inspiration zu Ernährung und Ergänzungsmitteln, die mir tagtäglich helfen. Die Körperarbeit von Frau Toelstede beeindruckt mich immer wieder, da sie sehr ausgefallene Grifftechniken anwendet und dabei sehr feinfühlig handelt. Ihr Wissen und Verständnis von Körper, Geist und Seele und deren wechselseitiger Wirkung motiviert sehr. Nach den Sitzungen bin ich immer entspannt, gelassen und voller Freude, in dieses angenehme, wohltuende und „neuartige“ Körpergefühl hineinzuleben.</p>
+      <p>Aus meiner Warte sage ich, dass Frau Dr. Simone Toelstede eine großartige Heilpraktikerin ist, und zwar mit Verstand, Herz und Hand … von ihrer Sorte brauchen wir mehr in unserem Land.</p>
+      <cite>Bettina D.</cite>
+    </figure>
+  </div></section>
+
+  <section class="band bg-white" id="news"><div class="wrap">
+    <div class="head"><span class="label">Aktuelles</span><h2>Aus der Praxis</h2></div>
+    <div class="news">
+      <a href="https://heilpraxis-toelstede.de/uncategorized/immunsystem-staerken-hilfreiche-umsetzbare-tipps/" target="_blank" rel="noopener"><img class="th" src="img/news1.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Immunsystem</div><div class="body"><h3>Post-COVID, Long-COVID, Post-COVID-Syndrom – was nun?</h3><p>Long COVID, Post COVID oder Post-COVID-Syndrom sind Bezeichnungen für einen Zustand anhaltender COVID-19-Symptome, die über das eigentliche Infektionsgeschehen mit SARS-CoV-2 hinaus andauern.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="https://heilpraxis-toelstede.de/uncategorized/wim-hof-buteyko-pranayama-oder-doch-einfach-nur-tief-einatmen-2/" target="_blank" rel="noopener"><img class="th" src="img/news2.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Immunsystem</div><div class="body"><h3>Immunsystem stärken – hilfreiche &amp; umsetzbare Tipps</h3><p>Was ist unser Immunsystem? Unser Immunsystem ist die wichtigste Verteidigung gegenüber der Außenwelt.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="https://heilpraxis-toelstede.de/uncategorized/wim-hof-buteyko-pranayama-oder-doch-einfach-nur-tief-einatmen/" target="_blank" rel="noopener"><img class="th" src="img/news3.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Atmung</div><div class="body"><h3>Wim Hof, Buteyko, Pranayama oder doch einfach nur tief einatmen?</h3><p>Die Atmung rückt seit ein paar Jahren stark in den Fokus, vor allem durch das Buch „Breath“ von James Nestor und durch Wim Hof.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="https://heilpraxis-toelstede.de/uncategorized/covid-was-ist-labortechnisch-moeglich/" target="_blank" rel="noopener"><img class="th" src="img/news4.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Labor</div><div class="body"><h3>COVID – was ist labortechnisch möglich?</h3><p>Erschöpfung, starke Müdigkeit, Energielosigkeit, Blutdruckschwankungen, plötzliches Herzrasen, Kopfschmerzen, Sehstörungen, Konzentrationsschwäche.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="https://heilpraxis-toelstede.de/uncategorized/parasiten-grund-fuer-chronische-krankheiten-bzw-dauermuedigkeit-und-schlafproblemen/" target="_blank" rel="noopener"><img class="th" src="img/news5.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Schlaf</div><div class="body"><h3>Schlafstörung – was kann man untersuchen?</h3><p>Wenn die Angst vor dem Wecker zum Alltag wird … Du leidest unter Schlafstörungen? Du bist nicht allein! Rund 25 % der Deutschen haben Schlafprobleme oder leiden unter Schlaflosigkeit.</p><span class="more">Weiterlesen →</span></div></a>
+      <a href="https://heilpraxis-toelstede.de/uncategorized/parasiten/" target="_blank" rel="noopener"><img class="th" src="img/news6.jpg" alt="" loading="lazy" width="400" height="250"><div class="tag">Darm</div><div class="body"><h3>Parasiten – Grund für chronische Krankheiten bzw. Dauermüdigkeit und Schlafprobleme?</h3><p>Was sind Parasiten und welche Symptome machen sie? Die erste Frage ist nicht ganz einfach zu beantworten, je nachdem, wie wir das Ganze betrachten.</p><span class="more">Weiterlesen →</span></div></a>
+    </div>
+    <p style="margin-top:2rem"><a class="btn ghost" href="https://www.instagram.com/heilpraxis_toelstede/" target="_blank" rel="noopener">Auf Instagram folgen</a></p>
+  </div></section>
+</div>
+
+<!-- ÜBER MICH -->
+<div class="view" id="v-ueber-mich">
+  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / Über mich</span><h1>Über mich</h1><p>Zu meiner Person</p></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p>(Er-)forschend – so würde ich eine meiner Lieblingseigenschaften beschreiben. Ich hatte schon immer den Drang, Dingen auf den Grund zu gehen, und bin entsprechend neugierig. Auf meiner bisherigen Reise durfte ich viel ausprobieren und kennenlernen: von der Lebensmittelforschung über einen kleinen Manufakturbetrieb bis hin zum Thema Gesundheit, das mich schon seit meiner Kindheit begleitet.</p>
+      <p>Allen voran wollte ich immer viel wissen über alles, was es auf der Erde so gibt. Mittlerweile bin ich mit der Ausbildung zur Heilpraktikerin Stück für Stück auch in die Bereiche „Fühlen, Intuition, Spiritualität“ eingetaucht.</p>
+      <p>Ich bin verheiratet, glückliche (Co-)Mutter unserer Tochter und freue mich jeden Tag, dass ich Menschen hin zu einer natürlichen, gesünderen und selbstverantwortlichen Lebensweise begleiten darf. Es macht mir Spaß, gemeinsam zu forschen und herauszufinden, was „nicht rund läuft“, was der Körper ausdrücken und was angeschaut werden möchte.</p>
+      <p class="hl">„Es kommt darauf an, den Körper mit der Seele und die Seele durch den Körper zu heilen.“ – Oscar Wilde</p>
+      <h2>Vita &amp; Ausbildungen</h2>
+      <ul class="vita">
+        <li><b>1998 – 2007</b><span>Studium &amp; Promotion in der Lebensmittelchemie</span></li>
+        <li><b>2007 – 2016</b><span>Leiterin / wissenschaftliche Führungskraft in verschiedenen Forschungseinrichtungen der Lebensmittelbranche</span></li>
+        <li><b>2013</b><span>Ausbildung zum Ayurveda-Koch (Europäische Akademie für Ayurveda)</span></li>
+        <li><b>2016 – 2020</b><span>Selbstständige Beraterin von Food-Startups</span></li>
+        <li><b>2017</b><span>Fastenleiterkurs (Gudrun Nebel)</span></li>
+        <li><b>2017 – 2018</b><span>Wildnispädagogik (Wildnisschule Allgäu)</span></li>
+        <li><b>2018</b><span>Volkskrankheiten-Kurs (Anja Facchini)</span></li>
+        <li><b>Nov 2018</b><span>Erlaubnis als Heilpraktikerin</span></li>
+        <li><b>2018 – 2019</b><span>Homöopathie-Kompakt-Kurs (Manfred Nistl)</span></li>
+        <li><b>2018 – 2020</b><span>Assistenzzeit bei einer naturheilkundlichen Ärztin sowie in einem Heilpraktiker-Therapiezentrum</span></li>
+        <li><b>2019</b><span>Cranio-Sacral-Therapie (Upledger Institut)</span></li>
+        <li><b>2019</b><span>Ohrakupunktur nach Thews</span></li>
+        <li><b>2020</b><span>Kinesiologisches Taping 2.0 (Beate Heydkamp)</span></li>
+        <li><b>2020 – 2021</b><span>Rebalancing Faszienmassage (Bernd Scharwies)</span></li>
+        <li><b>2020 / 2021</b><span>HRV-Individualschulung (Bernd Heiler)</span></li>
+        <li><b>2021</b><span>Mitochondriopathie (Biovis Diagnostik)</span></li>
+        <li><b>2021</b><span>Infusionskonzepte &amp; Aderlass (Bernd Singer)</span></li>
+        <li><b>2022</b><span>Organ Taping (Beate Heydkamp)</span></li>
+        <li><b>2023</b><span>Kinesiologie nach Klinghardt (ART 1, 2 und PK 1)</span></li>
+        <li><b>2024</b><span>Tensorkurs (Dr. Schwanner)</span></li>
+        <li><b>2025</b><span>Aurachirurgie (Ulrike Hagel)</span></li>
+        <li><b>2025</b><span>Infektionen und Parasiten (Jansen-Rosseck)</span></li>
+      </ul>
+      <p><span class="chip">Immunstärkung</span> <span class="chip">Darmgesundheit</span> <span class="chip">Stressdiagnostik</span> <span class="chip">Prävention</span></p>
+    </div>
+    <aside class="side">
+      <div class="bub"><img src="img/simone-portrait.jpg" alt="Dr. rer. nat. Simone Toelstede" loading="lazy"></div>
+      <div class="panel"><h4>Dr. rer. nat. Simone Toelstede</h4><p>Heilpraktikerin, Untere Weidenstraße 13, 81543 München</p><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a></div>
+    </aside>
+  </div></div>
+</div>
+
+<!-- LABOR -->
+<div class="view" id="v-labor">
+  <div class="shero"><img class="sbg" src="img/hero-labor2.jpg" alt="Kleine Glasfläschchen mit getrockneten Blüten" style="object-position:50% 55%" width="1400"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Diagnostik / Labordiagnostik</span><h1>Labordiagnostik</h1><span class="rule"></span><p>Mit modernster Technik und Labordiagnostik zu einem umfassenden diagnostischen Bild</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p>Diagnostisch setze ich in meiner Praxis labormedizinische und bewährte alternative Verfahren ein. Für eine umfassende Beurteilung der individuellen Ursachen arbeite ich ausschließlich mit akkreditierten Laboren auf höchstem technischem Niveau zusammen. Vielschichtige Erkrankungen brauchen oft eine differenzierte Sichtweise. Dazu gehören alternative diagnostische Verfahren, kombiniert mit wissenschaftlichen Ergebnissen, zum Beispiel aus Laboruntersuchungen. So erhalten wir ein ganzheitliches diagnostisches Bild.</p>
+      <h3>Mit modernster Labordiagnostik lässt sich bestimmen bzw. abklären:</h3>
+      <ul><li>Intoleranzen</li><li>Nahrungsmittelunverträglichkeiten</li><li>Funktion und Struktur der Magenschleimhaut</li><li>Untersuchung des Mikrobioms</li><li>Funktion der Bauchspeicheldrüse, Leber und Galle</li><li>Schilddrüsenfunktion</li><li>Nebennierenfunktion</li><li>Hormone und sonstige Botenstoffe</li><li>Mitochondrienfunktion</li><li>Zahnstatus</li></ul>
+      <figure class="viz lab" aria-label="Schematische Darstellung: Laborwerte im Referenzbereich"><div class="sweep"></div><div class="vr" style="--d:0.00s;--x:72%"><span>Schilddrüse</span><div class="track"><i class="band" style="left:34%;width:40%"></i><i class="dot"></i></div></div><div class="vr" style="--d:0.35s;--x:74%"><span>Nebenniere</span><div class="track"><i class="band" style="left:46%;width:40%"></i><i class="dot"></i></div></div><div class="vr" style="--d:0.70s;--x:82%"><span>Mikrobiom</span><div class="track"><i class="band" style="left:22%;width:40%"></i><i class="dot"></i></div></div><div class="vr" style="--d:1.05s;--x:60%"><span>Mitochondrien</span><div class="track"><i class="band" style="left:56%;width:40%"></i><i class="dot"></i></div></div><figcaption>Jeder Wert wird im Verhältnis zum Referenzbereich eingeordnet, so entsteht ein umfassendes Bild. <small>Schematische Darstellung, keine Messwerte.</small></figcaption></figure>
+      <a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Jetzt Termin buchen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Gut zu wissen</h4><p>Das Erstgespräch mit Anamnese ist der Ausgangspunkt. Daraus ergibt sich, welche Diagnostik für dich sinnvoll ist.</p><a class="btn ghost" href="#preise">Zu den Preisen</a></div></aside>
+  </div></div>
+</div>
+
+<!-- STRESS -->
+<div class="view" id="v-stress">
+  <div class="shero"><img class="sbg" src="img/hero-stress2.jpg" alt="Junge Frau trinkt in Ruhe Tee am Fenster" style="object-position:50% 45%" width="1400"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Diagnostik / Stressdiagnostik</span><h1>Stressdiagnostik</h1><span class="rule"></span><p>Diagnostik von Stress und Stressbewältigung</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p class="hl">Laut WHO ist Stress das größte Gesundheitsrisiko des 21. Jahrhunderts. In unserer modernen Welt sind wir ständig Reizen und Informationen ausgesetzt. Allein dadurch ist unsere innere Balance gestört. Zusätzliche Anforderungen von Familie, Beruf oder Umfeld führen zu einer dauernden Stressbelastung für unseren Körper.</p>
+      <p>Dabei ist Stress für unseren Organismus grundsätzlich nichts Ungewöhnliches. Die Nebenniere schüttet die Stresshormone Cortisol und Adrenalin aus, wodurch wir Leistung erbringen können, konzentriert und hellwach sind. Hält der Stress jedoch dauerhaft an, bleibt der Mensch in ständiger Alarmbereitschaft, und unser Immunsystem wird entsprechend dauerhaft belastet.</p>
+      <h3>Stress als Ursache vieler Krankheiten. Als Folge kann sich entwickeln:</h3>
+      <ul><li>Bluthochdruck, dadurch erhöhtes Risiko für Herzinfarkt und Schlaganfall</li><li>Insulinresistenz / Diabetes</li><li>Fettleber, Lebererkrankungen und Entgiftungsstörungen</li><li>Verdauungsbeschwerden, Leaky-Gut-Syndrom u. v. m.</li><li>Entwicklung von Autoimmunerkrankungen</li><li>Psychische Erkrankungen wie Burn-out, Depression usw.</li></ul>
+      <h3>Diagnostik und Therapie</h3>
+      <p>Als Diagnostik für unseren aktuellen psychischen und physischen Gesundheitszustand kann der Rhythmus der Herzfrequenz gemessen werden, die sogenannte <a href="https://de.wikipedia.org/wiki/Herzfrequenzvariabilit%C3%A4t" target="_blank" rel="noopener">Herzratenvariabilität</a> (HRV). Diese Analytik stammt aus der Kardiologie und ist eine <b>wissenschaftliche und evidenzbasierte Diagnostik</b>.</p>
+      <p>Dabei gilt: Je <b>höher die Variabilität</b>, desto <b>besser die Regulationsfähigkeit</b> des autonomen Nervensystems und damit die Anpassungsfähigkeit gegenüber Stress. Die Analyse der HRV zeigt, wie hoch die <b>aktuelle Stressbelastung</b> und die <b>Stressresilienz</b> sind. Dabei weicht das subjektive Empfinden meist von der objektiven Messung ab.</p>
+      <figure class="viz" aria-label="Schematische Darstellung: Herzschlag mit hoher und geringer Variabilität"><svg viewBox="0 0 580 215" role="img"><text x="20" y="16" class="vt">Hohe Variabilität</text><text x="20" y="116" class="vt vt2">Geringe Variabilität</text><path d="M20.0 86.0 L31.8 86.0 L36.7 80.0 L41.6 86.0 L49.4 86.0 L52.3 91.0 L55.3 40.0 L59.2 102.0 L62.1 86.0 L73.9 86.0 L80.8 77.0 L87.6 86.0 L118.0 86.0 L118.0 86.0 L125.9 86.0 L129.2 80.0 L132.5 86.0 L137.8 86.0 L139.8 91.0 L141.8 40.0 L144.4 102.0 L146.4 86.0 L154.3 86.0 L158.9 77.0 L163.5 86.0 L184.0 86.0 L184.0 86.0 L197.4 86.0 L203.0 80.0 L208.6 86.0 L217.6 86.0 L221.0 91.0 L224.3 40.0 L228.8 102.0 L232.2 86.0 L245.6 86.0 L253.4 77.0 L261.3 86.0 L296.0 86.0 L296.0 86.0 L305.4 86.0 L309.3 80.0 L313.2 86.0 L319.4 86.0 L321.7 91.0 L324.1 40.0 L327.2 102.0 L329.5 86.0 L338.9 86.0 L344.4 77.0 L349.8 86.0 L374.0 86.0 L374.0 86.0 L388.4 86.0 L394.4 80.0 L400.4 86.0 L410.0 86.0 L413.6 91.0 L417.2 40.0 L422.0 102.0 L425.6 86.0 L440.0 86.0 L448.4 77.0 L456.8 86.0 L494.0 86.0 L494.0 86.0 L502.6 86.0 L506.2 80.0 L509.8 86.0 L515.6 86.0 L517.8 91.0 L519.9 40.0 L522.8 102.0 L525.0 86.0 L533.6 86.0 L538.6 77.0 L543.7 86.0 L566.0 86.0" class="ln a" pathLength="1000"/><path d="M20.0 176.0 L30.6 176.0 L35.0 170.0 L39.4 176.0 L46.4 176.0 L49.0 181.0 L51.7 130.0 L55.2 192.0 L57.8 176.0 L68.4 176.0 L74.6 167.0 L80.7 176.0 L108.0 176.0 L108.0 176.0 L118.6 176.0 L123.0 170.0 L127.4 176.0 L134.4 176.0 L137.0 181.0 L139.7 130.0 L143.2 192.0 L145.8 176.0 L156.4 176.0 L162.6 167.0 L168.7 176.0 L196.0 176.0 L196.0 176.0 L206.6 176.0 L211.0 170.0 L215.4 176.0 L222.4 176.0 L225.0 181.0 L227.7 130.0 L231.2 192.0 L233.8 176.0 L244.4 176.0 L250.6 167.0 L256.7 176.0 L284.0 176.0 L284.0 176.0 L294.6 176.0 L299.0 170.0 L303.4 176.0 L310.4 176.0 L313.0 181.0 L315.7 130.0 L319.2 192.0 L321.8 176.0 L332.4 176.0 L338.6 167.0 L344.7 176.0 L372.0 176.0 L372.0 176.0 L382.6 176.0 L387.0 170.0 L391.4 176.0 L398.4 176.0 L401.0 181.0 L403.7 130.0 L407.2 192.0 L409.8 176.0 L420.4 176.0 L426.6 167.0 L432.7 176.0 L460.0 176.0 L460.0 176.0 L470.6 176.0 L475.0 170.0 L479.4 176.0 L486.4 176.0 L489.0 181.0 L491.7 130.0 L495.2 192.0 L497.8 176.0 L508.4 176.0 L514.6 167.0 L520.7 176.0 L548.0 176.0" class="ln b" pathLength="1000"/><circle cx="55.3" cy="40" r="3.2" class="rp"/><circle cx="141.8" cy="40" r="3.2" class="rp"/><circle cx="224.3" cy="40" r="3.2" class="rp"/><circle cx="324.1" cy="40" r="3.2" class="rp"/><circle cx="417.2" cy="40" r="3.2" class="rp"/><circle cx="519.9" cy="40" r="3.2" class="rp"/><circle cx="51.7" cy="130" r="3.2" class="rp"/><circle cx="139.7" cy="130" r="3.2" class="rp"/><circle cx="227.7" cy="130" r="3.2" class="rp"/><circle cx="315.7" cy="130" r="3.2" class="rp"/><circle cx="403.7" cy="130" r="3.2" class="rp"/><circle cx="491.7" cy="130" r="3.2" class="rp"/></svg><figcaption>Je höher die Variabilität der Abstände zwischen den Herzschlägen, desto besser die Regulationsfähigkeit. <small>Schematische Darstellung, keine Messwerte.</small></figcaption></figure>
+      <p>In meiner Praxis führe ich sowohl Kurzzeit- als auch Langzeit-HRV-Messungen durch (Firma <a href="https://www.biosign.de/" target="_blank" rel="noopener">BioSign</a>).</p>
+      <div class="grid" style="margin-bottom:1.6rem">
+        <div class="card"><h3>Kurzzeit-HRV</h3><p>Dauer ca. 15–20 Minuten. Die Messung erfolgt mit zwei Klemmelektroden, die typischerweise an den Handgelenken platziert werden. Sie liefert eine erste, grundlegende und aktuelle Einschätzung des Zustands des vegetativen Nervensystems.</p></div>
+        <div class="card"><h3>Langzeit-HRV</h3><p>Dauer 24 Stunden. Die Messung erfolgt mit einem kleinen EKG-Rekorder, der kaum spürbar an der Brust sitzt. Typische Stressoren im Laufe des Tages lassen sich explizit ausweisen, und der Schlaf kann hinsichtlich Tiefe und Phasen und damit der Regeneration beurteilt werden.</p></div>
+      </div>
+      <h3>Adrenaler Stress-Test (Cortisol-Tagesprofil)</h3>
+      <p>Unterstützend kann ein Speicheltest auf den adrenalen Stress-Index (Cortisol-Tagesprofil) sowie auf weitere Stresshormone wie Noradrenalin und Adrenalin (unter anderem auch Serotonin) durchgeführt werden.</p>
+      <figure class="viz" aria-label="Schematische Darstellung: Cortisol-Tagesprofil"><svg viewBox="0 0 580 210" role="img"><g class="grid"><line x1="40" y1="178" x2="545" y2="178"/><line x1="40" y1="20" x2="40" y2="178"/></g><text x="40" y="198" class="vt" text-anchor="middle">6 Uhr</text><text x="210" y="198" class="vt" text-anchor="middle">12 Uhr</text><text x="380" y="198" class="vt" text-anchor="middle">18 Uhr</text><text x="540" y="198" class="vt" text-anchor="middle">24 Uhr</text><path d="M40 138 C120 122 200 114 280 110 S440 104 540 100" class="ln s" pathLength="1000"/><path d="M40 150 C80 44 120 26 170 38 S300 108 380 134 S500 160 540 164" class="ln h" pathLength="1000"/><circle r="6.5" class="mv" style="offset-path:path('M40 150 C80 44 120 26 170 38 S300 108 380 134 S500 160 540 164')"/><g class="lg"><circle cx="318" cy="30" r="5" fill="#E3A15C"/><text x="330" y="34" class="vt">Ausgeprägter Tagesverlauf</text><circle cx="318" cy="52" r="5" fill="#A9AFB6"/><text x="330" y="56" class="vt">Abgeflachtes Profil</text></g></svg><figcaption>Cortisol folgt einem Tagesrhythmus: morgens hoch, abends niedrig. Bei dauerhafter Belastung kann sich dieser Verlauf abflachen. <small>Schematische Darstellung, keine Messwerte.</small></figcaption></figure>
+      <p>Je nach Befund und Symptomatik erstelle ich einen individuellen Therapieplan zur Stressbewältigung und zum Umgang damit.</p>
+      <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Preise</h4><div class="facts"><div><span>Kurzzeit-HRV (3 Messungen, inkl. Befund)</span><b>59 €</b></div><div><span>Langzeit-HRV (24 h, inkl. Befund)</span><b>120 €</b></div></div><p>Langzeit-Messung zzgl. Leihgebühr für das EKG-Messgerät.</p></div></aside>
+  </div></div>
+</div>
+
+<!-- IHHT -->
+<div class="view" id="v-ihht">
+  <div class="shero"><img class="sbg" src="img/hero-ihht.jpg" alt="Bergketten im blauen Dunst" style="object-position:50% 55%" width="1400"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / IHHT</span><h1>IHHT – Höhentraining</h1><span class="rule"></span><p>Das Höhentraining (IHHT) setzt an der Basis unseres Körpers an: unseren Zellen</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p>Der Zellstoffwechsel ist der Dreh- und Angelpunkt unserer Gesundheit und Vitalität. Unser Körper besteht aus 70 Billionen Zellen, und in diesen wiederum befinden sich je ca. 1500–5000 Kraftwerke, die sogenannten Mitochondrien. Sie sind für unsere Energieversorgung zuständig. Gleichzeitig sind diese kleinen Kraftwerke, die sich besonders konzentriert in Herzmuskel- und Nervenzellen finden, sehr anfällig für die Umwelteinflüsse, die das heutige Leben mit sich bringt.</p>
+      <p class="hl">Bereits jeder dritte Mensch ab 20 Jahren (!) hat eine sogenannte sekundäre Mitochondriopathie.</p>
+      <p>Ungesunde Ernährung, Schlafdefizit, chronischer Stress, Alkohol, Rauchen, Elektrosmog, Schwermetalle … all das beeinträchtigt die Mitochondrien und ihre Arbeit. Das Wohlbefinden und der Gesundheitszustand leiden nach und nach darunter: Erschöpfung, chronische Müdigkeit, Konzentrationsprobleme und Stressanfälligkeit zeigen sich. Werden die Symptome missachtet, arbeiten Körper und Energiesystem immer ineffizienter, bis das Fass irgendwann überläuft: Chronische Krankheiten, Autoimmungeschehen und tumoröse Prozesse gewinnen die Oberhand.</p>
+      <h3>Was genau ist „IHHT“?</h3>
+      <p>Die IHHT (intermittierende Hypoxie-Hyperoxie-Therapie) ist eine spezielle Sauerstofftherapie, oft auch „Höhentraining“ genannt, die die Zahl intakter Mitochondrien wieder erhöht. Dieses sogenannte Zelltraining folgt einer einfachen Strategie:</p>
+      <p>Durch einen schwankenden Sauerstoffgehalt werden die Kraftwerke unter akuten Stress gesetzt, sodass alte und beschädigte nicht standhalten können und zugrunde gehen. Damit ist Platz für gesunde Mitochondrien und die Entstehung neuer. Ein rhythmischer Wechsel von sauerstoffärmerer (Hypoxie) und sauerstoffreicherer (Hyperoxie) Luft führt zu einem Trainingseffekt für sämtliche Körperzellen, ähnlich wie bei sportlicher Betätigung in der Höhe, nur um ein Vielfaches spezifischer und effektiver. Der Fettstoffwechsel wird angeregt, das Immunsystem gestärkt.</p>
+      <p>Dabei ist das Zelltraining nicht anstrengend und eignet sich deshalb besonders auch für Menschen mit chronischem Fatigue-Syndrom, für Burn-out-Betroffene und bei generellen krankheitsbedingten Einschränkungen des Bewegungsapparates.</p>
+      <p><a href="https://www.youtube.com/watch?v=Mo178jocF5Y" target="_blank" rel="noopener">Hier ein kurzes zusammenfassendes Video ansehen</a></p>
+      <h3>Wobei kann das IHHT-Höhentraining helfen?</h3>
+      <p>Die Indikationen sind mannigfaltig und reichen vom präventiven Einsatz bis hin zu chronischen Erkrankungen. Einige Beispiele, wo ein Einsatz sinnvoll sein kann:</p>
+      <ul><li>chronischer Stress / Burn-out</li><li>chronische Müdigkeit / CFS</li><li>Ausgleich des vegetativen Nervensystems (HRV)</li><li>Infektanfälligkeit</li><li>chronische Viruserkrankungen (Epstein-Barr, Herpes …)</li><li>Borreliose</li><li>Autoimmungeschehen, Allergien</li><li>Schlafstörungen</li><li>Unfruchtbarkeit</li><li>Leistungsabfall / Energiemangel</li><li>Herz-Kreislauf-Erkrankungen</li><li>psychische Belastungen, Depressionen</li><li>Verlangsamung von Alterungsprozessen</li><li>Gewichtsregulierung</li><li>Post-COVID / Long-COVID-Syndrom</li></ul>
+      <p>Ein Trainingszyklus umfasst meist 12–15 Sitzungen à ca. 45 Minuten. Du liegst dabei ganz entspannt auf einer Liege und atmest über eine Maske im Wechsel sauerstoffärmere und sauerstoffreichere Luft ein. Die Zyklen folgen einem individuell angepassten Trainingsplan.</p>
+      <h3>Wissenschaftliche Artikel zum Thema IHHT</h3>
+      <ul class="src">
+        <li><a href="https://heilpraxis-toelstede.de/wp-content/uploads/2021/08/2014-Hypoxie-und-Entz%C3%BCndungenMetabolische-Riskofaktoren.pdf" target="_blank" rel="noopener">2014 – Hypoxie und Entzündungen / Metabolische Risikofaktoren</a></li>
+        <li><a href="https://heilpraxis-toelstede.de/wp-content/uploads/2021/08/2016-IHHT_Therapie-chronische-Krankheiten-1.pdf" target="_blank" rel="noopener">2016 – IHHT zur Therapie von chronischen Krankheiten</a></li>
+        <li><a href="https://www.welt.de/gesundheit/article201537032/Genetik-Medizin-Nobelpreis-fuer-das-Geheimnis-des-Hoehentrainings.html" target="_blank" rel="noopener">2019 – Medizin-Nobelpreis für das Geheimnis des Höhentrainings</a></li>
+        <li><a href="https://heilpraxis-toelstede.de/wp-content/uploads/2021/08/2020-Hypoxie-und-Covid-19.pdf" target="_blank" rel="noopener">2020 – Hypoxie und COVID-19</a></li>
+        <li><a href="https://www.medmove.ch/wp-content/uploads/2020/04/Egorov-11.4.2020.pdf" target="_blank" rel="noopener">2021 – IHHT in Zeiten von COVID-19</a></li>
+        <li><a href="https://heilpraxis-toelstede.de/wp-content/uploads/2021/08/Gesunder-Stoffwechsel-durch-IHHT.pdf" target="_blank" rel="noopener">Gesunder Stoffwechsel durch IHHT</a></li>
+      </ul>
+      <p><a href="https://www.youtube.com/watch?v=QRzDdXICi5o" target="_blank" rel="noopener">Weiteres Video zur IHHT ansehen</a></p>
+      <a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Jetzt Termin buchen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Auf einen Blick</h4><div class="facts"><div><span>Zyklus</span><b>12–15 Sitzungen</b></div><div><span>Dauer</span><b>ca. 45 Min.</b></div><div><span>Preis je Sitzung</span><b>80 €</b></div><div><span>10er-Paket</span><b>750 €</b></div></div></div></aside>
+  </div></div>
+</div>
+
+<!-- HYPERTHERMIE -->
+<div class="view" id="v-hyperthermie">
+  <div class="shero shero-dome"><img class="sbg" src="img/hero-hyper-dome.jpg" alt="Frau im Bademantel am Kenko-Dome in einem hellen Raum" style="object-position:50% 55%" width="1800"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / Hyperthermie</span><h1>Hyperthermie</h1><span class="rule"></span><p>Ganzkörperhyperthermie</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="prose">
+    <p>Die Ganzkörper-Hyperthermie (GKH), auch systemische Hyperthermie genannt, ist die kontrollierte, von außen herbeigeführte Erhöhung der Körperkerntemperatur zu therapeutischen Zwecken. Der Ansatz beruht auf dem Prinzip des Fiebers als natürlichem Immunmechanismus: Die Erhöhung der Kerntemperatur aktiviert und reguliert eine außergewöhnliche Immunreaktion.</p>
+    <p>Die Wirksamkeit wurde für mehrere Indikationen auf klinischen Evidenzniveaus dokumentiert. Zu den Wirkmechanismen zählen eine erhöhte Gewebedurchblutung und Stoffwechselaktivität sowie hormonelle und immunologische Effekte.</p>
+    <span class="soon">Bald verfügbar</span><br>
+    <a class="btn ghost" href="#kontakt">Informiert bleiben</a>
+  </div></div>
+</div>
+
+<!-- RIFETECH -->
+<div class="view" id="v-rifetech">
+  <div class="shero shero-dev"><div class="wrap"><div class="dev dev-s"><img src="img/rifetech-geraet.png" alt="RIFETECH Plasma Gerät" width="612" height="700"></div><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / Rifetech Plasma</span><h1>RIFETECH Plasma</h1><span class="rule"></span><p>RIFETECH®-Plasmatherapie</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <h3>RIFETECH Plasma System</h3>
+      <p>RIFETECH® ist eine innovative Form der Plasmatherapie, die elektromagnetische Frequenzen nutzt, um das Immunsystem zu unterstützen. Plasma ist neben fest, flüssig und gasförmig der vierte Aggregatzustand. Wird einem Gas zusätzliche Energie zugeführt, ionisiert es, und es entstehen Ionen, die gezielt Schwingungen und Informationen transportieren. Diese physikalische Grundlage macht sich RIFETECH zunutze, um zelluläre Prozesse positiv zu beeinflussen.</p>
+      <h3>Präzise Frequenzübertragung für messbare Wirkung</h3>
+      <p>Die Plasmaröhre von RIFETECH sendet gepulste elektrische und magnetische Spektren aus, die bis in den Terahertz-Bereich reichen. Die Wirkung beruht auf einer breiten Frequenzbandbreite von 1 Hz bis 900 kHz und der präzisen Abstimmung der Frequenzen auf die Zielstrukturen. Die Frequenzen werden auf Lichtgeschwindigkeit umgerechnet und anschließend durch die Länge der DNA geteilt, um die gewünschte Resonanzfrequenz exakt zu treffen. Dieser Prozess ermöglicht eine elektrodynamische Wirkung auf die Zellen.</p>
+      <h3>Anwendungsgebiete und Programme</h3>
+      <p>RIFETECH-Plasma kann unterstützend eingesetzt werden, wenn das Immunsystem geschwächt oder angegriffen ist, zum Beispiel bei chronischen Erkrankungen oder Autoimmunerkrankungen. Das Gerät bietet eine Vielzahl von Behandlungsprogrammen, die individuell angepasst werden können.</p>
+      
+      <h3>Behandlungsablauf: sanft und nebenwirkungsfrei</h3>
+      <p>Die Intensität der Behandlung hängt vom Abstand zum Gerät ab: je näher, desto stärker. Die Plasmastrahlung ist nicht ionisierend und hat keine messbaren gesundheitsschädlichen oder energetischen Nebenwirkungen. Je nach gewähltem Programm dauert die Behandlung pro Tag etwa 1 bis 2 Stunden. Du kannst währenddessen entspannt liegen, meditieren oder ein Buch lesen. Die RIFETECH-Sitzungen fügen sich leicht in deinen Alltag ein.</p>
+      <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Auf einen Blick</h4><div class="facts"><div><span>Dauer pro Tag</span><b>ca. 1–2 Std.</b></div><div><span>Frequenzbereich</span><b>1 Hz – 900 kHz</b></div></div></div></aside>
+  </div></div>
+</div>
+
+<!-- MEDKEY -->
+<div class="view" id="v-medkey">
+  <div class="shero shero-dev"><div class="wrap"><div class="dev"><img src="img/medkey-geraet.png" alt="Medkey Gerät mit Ladestation" width="1200" height="884"></div><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / Medkey</span><h1>Medkey Therapie</h1><span class="rule"></span><p>Sanfte bioadaptive Impulstherapie zur Schmerzlinderung, Geweberegeneration und Regulation</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <h3>Was ist der Medkey?</h3>
+      <p>Der <b>Medkey</b> ist ein innovatives, bioadaptives Impulstherapiegerät aus der Keyserie (<a href="https://www.keyserie.com/" target="_blank" rel="noopener">Keytec</a>). Er stimuliert über die Haut gezielt Nervenrezeptoren und <b>unterstützt so körpereigene Regenerations- und Regulationsmechanismen</b>. Durch die adaptive Rückkopplung passt sich jeder Impuls der individuellen Gewebereaktion an – für eine sanfte, aber wirksame Behandlung akuter und chronischer Beschwerden.</p>
+      <h3>Wirkung &amp; Anwendung</h3>
+      <ul><li>Aktiviert Selbstregulation und Schmerzlinderung über neurophysiologische Mechanismen</li><li>Fördert Mikrozirkulation, Lymphfluss und Zellstoffwechsel</li><li>Entspannt die Muskulatur und reduziert Entzündungsmediatoren</li><li>Unterstützt die Regeneration nach Verletzungen oder Operationen</li><li>Wirkt ganzheitlich und lässt sich ideal in multimodale Therapiekonzepte integrieren</li></ul>
+      <h3>Typische und spezifische Anwendungsgebiete</h3>
+      <ul><li>Rückenschmerzen, Gelenkbeschwerden, Arthrose</li><li>Tendopathien, Muskeldysbalancen, Sportverletzungen</li><li>Neuropathische Schmerzen, Neuralgien</li><li>Narbenbehandlung &amp; Geweberegeneration</li><li>Regulationsstörungen und vegetative Dysbalancen</li><li>Organspezifische Funktionsstörungen (z. B. Leber, Lunge, Blase …)</li></ul>
+      <h3>Behandlungsrhythmus</h3>
+      <p>Akut 1–2× pro Woche, jeweils ca. 15–30 Minuten. Chronisch über mehrere Wochen mit individueller Anpassung. Kombinierbar mit IHHT, Infusionstherapie oder manueller Regulationstherapie.</p>
+      <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Auf einen Blick</h4><div class="facts"><div><span>Sitzung</span><b>ca. 15–30 Min.</b></div><div><span>Preis je Sitzung</span><b>45 €</b></div></div></div></aside>
+  </div></div>
+</div>
+
+<!-- INFUSION -->
+<div class="view" id="v-infusion">
+  <div class="shero"><img class="sbg" src="img/hero-infusion.jpg" alt="Infusionsschlauch in ruhigem Licht" style="object-position:40% 50%" width="1400"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / Infusionstherapie</span><h1>Infusionstherapie</h1><span class="rule"></span><p>Individuelle Nährstoffe und Therapeutika als Infusion</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p class="hl">Eigentlich ist unser Körper so geschaffen, dass er durch hochwertige Nahrung, genügend Bewegung (bestmöglich in der Natur) und psychische Ausgeglichenheit (wenig Stress) sämtliche Nähr- und Vitalstoffe gut aufnehmen und verwerten kann.</p>
+      <p>Die Realität sieht heutzutage jedoch ganz anders aus. Dauerstress durch Alltag, Familie und/oder Job, mangelnde Bewegung, Rauchen, Stadtluft und Fast Food ohne Nährstoffe rauben unserem Körper in kürzester Zeit Vitamine, Antioxidantien, Mineralien und Spurenelemente. Auch die Lebensmittel, die wir zu uns nehmen, haben aufgrund der ausgelaugten Böden nicht mehr die Nähr- und Vitalstoffdichte wie früher.</p>
+      <h3>Indikationen für Infusionen</h3>
+      <p><b>Mangelerscheinungen, die durch krankhafte Zustände bzw. Krankheiten bedingt sind:</b></p>
+      <ul><li>Magen-/Darmerkrankungen, Intoleranzen, Aufnahmestörungen</li><li>akute, chronische und stille Entzündungen</li><li>Autoimmunerkrankungen</li><li>wiederkehrende Infekte (viral, bakteriell, Pilze)</li><li>Immunschwäche</li><li>Burn-out / Erschöpfungszustände</li><li>Allergien</li></ul>
+      <p><b>Mangelerscheinungen, die durch den Lebensumstand bedingt sind:</b></p>
+      <ul><li>Raucher</li><li>Leistungssportler</li><li>einseitige Ernährung</li><li>Alter / oxidative Prozesse</li><li>chronischer Stress</li></ul>
+      <p>Generell sind Infusionen auch für die präventive Gesundheitsfürsorge sinnvoll. Auf sehr effektive Weise werden der Organismus und sein Immunsystem nachhaltig gestärkt. Die Vorteile der Infusionen sind die schnelle und systemische Wirkung, die absolute Bioverfügbarkeit von 100 % (oral aufgenommene Nährstoffe sind in der Bioverfügbarkeit eingeschränkt, bei Eisen beträgt sie z. B. nur ca. 10–15 %), die genaue Dosierung und keine Belastung des Magen-Darm-Trakts.</p>
+      <h3>Diagnostik und Therapie</h3>
+      <p>Um vorhandene Nährstoffmängel zu bestätigen, eignet sich vorab ein Blutbild mit den entsprechenden Parametern. Eine Vollblut-Mineralanalyse, die Bestimmung des Vitamin- und Aminosäurestatus sowie gegebenenfalls der Entgiftungsleistung liefern wichtige Hinweise (siehe auch <a href="#labor">Labordiagnostik</a>).</p>
+      <p>Je nach Erkrankung und Beschwerdebild werden verschiedene Einzelstoffe oder Wirkstoffkombinationen infundiert, z. B.</p>
+      <ul><li>Vitamine (B-Vitamine, Hochdosis-Vitamin-C)</li><li>Aminosäuren</li><li>Homöopathische Komplexmittel</li><li>Mineralstoffe</li></ul>
+      <p>Um das Wirkspektrum zu verdeutlichen, hier eine Auflistung am Beispiel der Hochdosis-Vitamin-C-Infusion:</p>
+      <ul><li>Stärkung des Immunsystems (Antikörperproduktion, Produktion von Interferonen, Bildung von Killerzellen, T- und B-Immunzellen, Aktivität weißer Blutkörperchen, Abwehrzellen der Darmschleimhaut …)</li><li>beteiligt an der Produktion von Nervenbotenstoffen und an der Fettverbrennung</li><li>fördert die Eisenaufnahme und aktiviert die Entgiftung der Leber</li><li>bindet Schwermetalle (Quecksilber, Blei) und andere Schadstoffe</li></ul>
+      <p>Die Anzahl der Infusionen richtet sich nach Zielsetzung bzw. Symptomatik. Üblicherweise werden 5–15 Behandlungen à 20–45 Minuten durchgeführt. Die Infusionstherapie lässt sich gut mit anderen Therapieformen kombinieren, zum Beispiel mit der IHHT oder der Ohrakupunktur.</p>
+      <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Auf einen Blick</h4><div class="facts"><div><span>Behandlungen</span><b>5–15</b></div><div><span>Dauer</span><b>20–45 Min.</b></div><div><span>Preis je Sitzung</span><b>65 €</b></div></div><p>zzgl. Ampullen und Therapeutika</p></div></aside>
+  </div></div>
+</div>
+
+<!-- DARM -->
+<div class="view" id="v-darm">
+  <div class="shero"><img class="sbg" src="img/darm-d.jpg" alt="Frisches Gemüse in einer weißen Schale" style="object-position:50% 55%" width="1400"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / Darmgesundheit</span><h1>Darmgesundheit</h1><span class="rule"></span><p>Unsere Darmgesundheit hat eine zentrale Rolle für unsere gesamte Gesundheit</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p>Unser Darm spielt eine der zentralsten Rollen in unserem Körper. Er ist nicht nur für die Verdauung und Resorption unserer Nahrung zuständig, sondern auch Teil unseres Immunsystems und damit an der Ausbildung chronischer bzw. autoimmuner Geschehen beteiligt.</p>
+      <p>Des Weiteren hat er Einfluss auf unsere Hormone. Im Darm wird beispielsweise der Östrogenstoffwechsel mitreguliert. Deshalb ist bei Kinderwunsch, polyzystischem Ovarialsyndrom oder Unfruchtbarkeit eine Untersuchung des Darmzustands ratsam. Das Gleiche gilt für die mittlerweile sehr häufige Insulinresistenz, eine Vorstufe von Diabetes Typ 2.</p>
+      <p>Neueste Forschungsergebnisse zeigen außerdem einen direkten Zusammenhang zwischen unserer Darmflora (dem Mikrobiom) und unserer psychischen Gesundheit. Depressionen, Stimmungsschwankungen und Ähnliches können durch die Zusammensetzung dieser Flora beeinflusst werden. Die Darmgesundheit ist somit zentraler Dreh- und Angelpunkt für die Entstehung von Krankheiten bzw. den Erhalt unserer Gesundheit.</p>
+      <h3>Wie kommt es nun zur Entstehung von Krankheiten?</h3>
+      <p>Meist sind stille Entzündungen mitverantwortlich. Diese „Silent Inflammation“ sind für uns anfangs nicht wahrnehmbar, führen aber, wenn sie über längere Zeit bestehen bleiben und nicht behandelt werden, zu körperlichen Symptomen. Das können zu Beginn Kopfschmerzen, Verdauungsbeschwerden, chronische Müdigkeit oder eine verstärkte Infektanfälligkeit sein. Im Verdauungssystem können z. B. Nahrungsmittelunverträglichkeiten, verstärkte Blähungen, Völlegefühl, Durchfälle oder Verstopfung auftreten. Langfristig münden stille Entzündungen unbehandelt in schwere Krankheitsbilder oder chronische Geschehen (Diabetes, Arteriosklerose …).</p>
+      <h3>Auslöser von stillen Entzündungen können sein:</h3>
+      <ul><li>chronischer Stress</li><li>schlechte Ernährung</li><li>Umweltschadstoffe</li><li>Allergene</li><li>ein „löchriger“ Darm (Leaky-Gut-Syndrom)</li><li>schlechter Zahnstatus</li></ul>
+      <p>Schulmedizinisch diagnostizierbare Krankheitsbilder im Verdauungssystem sind die chronisch-entzündlichen Darmerkrankungen wie Morbus Crohn, Colitis ulcerosa oder Zöliakie. Wenn die Untersuchungen nichts ergeben, wird häufig die Diagnose „Reizdarm“ gestellt.</p>
+      <p><b>In meiner Praxis zeigt sich häufig, dass folgende Symptomatiken nicht oder nicht in der entsprechenden Tiefe untersucht wurden bzw. werden:</b></p>
+      <ul><li>Nahrungsmittelunverträglichkeiten (Laktose, Fruktose, Sorbit, Salicylat)</li><li>Allergien</li><li>Leaky-Gut-Syndrom</li><li>Histaminintoleranz</li><li>Dünndarmfehlbesiedelung (SIBO)</li><li>Pankreasinsuffizienz</li><li>Gallensäureverlustsyndrom</li><li>Parasiten</li></ul>
+      <h3>Diagnostik und Therapie</h3>
+      <p>Das A und O bei Verdauungsbeschwerden sind das Erstgespräch und eine grundlegende Diagnostik. Dazu gehören je nach Beschwerdebild:</p>
+      <ul><li>Analyse des vegetativen Nervensystems (<a href="#stress">Stressdiagnostik</a>)</li><li>Stuhluntersuchung (Zusammensetzung der Mikroflora, Verdauungsrückstände, Entzündungsmarker, Schleimhautimmunität, Gallensäureverlust)</li><li>Urinuntersuchung (z. B. Histaminmetabolismus)</li><li>Blutuntersuchungen (z. B. Entzündungsmarker, Enzymaktivitäten wie DAO, Mineralstoffmängel)</li><li>Speicheltests (vor allem bei hormonellen Störungen)</li><li>Atemtests zur Abklärung von Nahrungsmittelunverträglichkeiten</li><li>Atemtest zur Feststellung einer Fehlbesiedelung des Dünndarms</li></ul>
+      <p>Je nach Befund erstelle ich einen individuellen Therapieplan inklusive Ernährungsempfehlungen. Die Dauer richtet sich nach der Diagnose, ist im Verdauungsbereich aber meist längerfristig angelegt (ca. ½ bis 1 Jahr).</p>
+      <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Dauer</h4><p>Im Verdauungsbereich ist die Begleitung meist längerfristig angelegt, ca. ½ bis 1 Jahr.</p></div></aside>
+  </div></div>
+</div>
+
+<!-- OHR -->
+<div class="view" id="v-ohr">
+  <div class="shero"><img class="sbg" src="img/hero-ohr.jpg" alt="Akupunkturnadeln" style="object-position:50% 40%" width="1400"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Therapieangebote / Ohrakupunktur</span><h1>Ohrakupunktur</h1><span class="rule"></span><p>Die Ohrakupunktur basiert auf der Annahme, dass der gesamte menschliche Körper auf der Ohrmuschel abgebildet ist.</p><div class="cta-row"><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a><a class="btn ghost" href="#kontakt">Kontakt</a></div></div></div></div>
+  <div class="wrap page"><div class="cols">
+    <div class="prose">
+      <p class="hl">Die Ohrakupunktur (Aurikulotherapie) hat eine lange Tradition, die bis ins Altertum zu Hippokrates (5. Jh. v. Chr.) zurückgeht. In ihrer heutigen Vielfalt ist sie vor allem durch den französischen Arzt Paul Nogier (1908–1996) geprägt.</p>
+      <p style="font:1.6rem/1.3 var(--display);color:var(--accent-text)">„Im Ohr steckt der ganze Mensch“</p>
+      <p>In der Reflexzone Ohr sind der ganze Mensch und jedes Organ abgebildet. So besteht die Möglichkeit, dass Störungen, Schmerzen und Erkrankungen anhand dieser Zonen unkompliziert und effektiv behandelt werden können. Nur bei einer Funktionsstörung des korrespondierenden Organs sind die Akupunkturpunkte auch „aktiv“, das heißt gut auffindbar und druckempfindlich bis schmerzhaft.</p>
+      <p>Nogier entdeckte in seinem akribischen Studium des Ohrs nicht nur organ- und körperspezifische Akupunkturpunkte, sondern auch Punkte mit spezifischen Wirkungen im hormonellen und psychotropen Bereich, sodass die Anwendungsmöglichkeiten ein sehr weites Spektrum abdecken können.</p>
+      <h3>Einige Indikationsbeispiele</h3>
+      <ul><li>akute und chronische Schmerzen des Bewegungsapparates</li><li>allergische Erkrankungen (z. B. Heuschnupfen)</li><li>Suchttherapie (Rauchen, Esssucht …)</li><li>Verdauungsbeschwerden</li><li>funktionelle Störungen des Urogenital- und Respirationstrakts</li><li>hormonelle Störungen (Schilddrüse, PMS …)</li><li>psychische Belastungen / stressbedingte Erkrankungen (z. B. Tinnitus)</li><li>Schlafstörungen</li><li>Migräne</li></ul>
+      <h3>Diagnostik und Therapie</h3>
+      <p>Die Behandlung erfolgt entspannt im Liegen oder Sitzen. Im Rahmen der Untersuchung deines Innen- und Außenohrs werden deine Ohren anhand der vorausgegangenen Anamnese an bestimmten Punkten stimuliert und auf Druckschmerzhaftigkeit getestet. Je nach Ergebnis werden pro Sitzung mehrere Nadeln gesetzt und bis zu 20–30 Minuten im Ohr belassen. Die Behandlung erfolgt meist einmal wöchentlich, in akuten Fällen zwei- bis dreimal wöchentlich.</p>
+      <p>Bei sensiblen Menschen besteht die Möglichkeit, ohne Nadeln zu behandeln. Dabei werden spezielle Samenkörner bzw. Globuli auf die Akupunkturpunkte aufgebracht und mit einem Hautpflaster fixiert. Diese Therapie kann alle 14 Tage wiederholt werden.</p>
+      <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+    <aside class="side"><div class="panel"><h4>Auf einen Blick</h4><div class="facts"><div><span>Nadeln im Ohr</span><b>20–30 Min.</b></div><div><span>Rhythmus</span><b>1× pro Woche</b></div><div><span>Preis je Sitzung</span><b>45 €</b></div></div></div></aside>
+  </div></div>
+</div>
+
+<!-- PREISE -->
+<div class="view" id="v-preise">
+  <div class="pz-hero"><div class="wrap">
+    <div class="pz-ht"><span class="crumb"><a href="#home">Home</a> / Meine Preise</span><h1>Meine Preise</h1><span class="rule"></span><p>Transparent und ohne Kleingedrucktes. Klick dir dein Paket zusammen und sieh sofort, was es kostet.</p></div>
+    <div class="pz-coins" aria-hidden="true"><span class="c c1">20 €</span><span class="c c2">59 €</span><span class="c c3">175 €</span><span class="c c4">45 €</span></div>
+  </div></div>
+  <div class="wrap page pz">
+    <div class="pz-chips"><span class="chip">Selbstzahler</span><span class="chip">Private Krankenversicherung</span><span class="chip">HP-Zusatzversicherung</span><span class="chip">Teilzahlung in finanziell schwierigen Lebenssituationen</span></div>
+    <div class="pz-filter" role="tablist" aria-label="Kategorien"></div>
+    <div id="pz-root"></div>
+    <div class="pz-info"><h2>Gut zu wissen rund ums Bezahlen</h2><div class="pz-acc">
+      <details open><summary>Erstattung durch deine Versicherung</summary><p>Die Kosten des Heilpraktikers werden in der Regel ganz oder teilweise von den meisten privaten Krankenversicherungen, Beihilfen und Zusatzversicherungen erstattet. Welche Leistungen erstattet werden, die Höhe des Eigenanteils und der Erstattung hängen jedoch von deiner persönlichen versicherungsvertraglichen Vereinbarung ab. Bitte kläre die Kostenerstattung für deinen persönlichen Fall mit deiner Versicherung. Gerne stehe ich dir auch für Fragen zur Verfügung.</p></details>
+      <details><summary>So rechne ich ab</summary><p>Ich rechne nicht direkt mit den Versicherungen ab, das heißt, die Kosten musst du vollständig selbst begleichen (auch für den Fall, dass die Kasse nicht die ganze Rechnung übernimmt). Abrechnungen für private Kassen und Zusatzversicherungen auf Basis des GebüH (Gebührenverzeichnis für Heilpraktiker) erstelle ich auf Nachfrage jederzeit. Gesetzliche Krankenkassen übernehmen leider keine Kosten einer Behandlung durch Heilpraktiker.</p></details>
+      <details><summary>In schwierigen finanziellen Situationen</summary><p>Falls du finanziell in einer schwierigen Situation steckst und das der einzige Grund gegen eine Behandlung ist, kontaktiere mich. Wir finden auch hier einen Weg!</p><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></details>
+    </div></div>
+  </div>
+  <div class="pz-bar" id="pz-bar" aria-live="polite"><div class="pz-bl"><b id="pz-n">0 Leistungen</b><span id="pz-sum">0 €</span><small>Richtwert, zzgl. Material bzw. Leihgebühr, wo angegeben</small></div><div class="pz-br"><button type="button" id="pz-clear" class="pz-x">Leeren</button><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a></div></div>
+</div>
+
+<!-- KONTAKT -->
+</main>
+
+<div class="cw" id="cw">
+  <div class="more" id="cwMore" hidden>
+    <a class="wa" href="https://wa.me/4917695152732" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben"><span class="tip">WhatsApp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.2 15l-.3-.18-3.1.9.9-3-.2-.3A8.1 8.1 0 0 1 12.04 3.8zm-3.2 3.9c-.2 0-.5.07-.75.35-.25.28-.97.95-.97 2.3s1 2.7 1.12 2.9c.14.18 1.95 3.1 4.8 4.2 2.4.95 2.9.76 3.4.7.5-.05 1.65-.67 1.9-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32-.28-.14-1.65-.82-1.9-.9-.26-.1-.45-.14-.63.14-.18.28-.72.9-.88 1.1-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.4-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.2.05-.35-.02-.5-.07-.14-.62-1.5-.85-2.05-.22-.54-.45-.46-.63-.47h-.54z"/></svg></a>
+    <a class="ph" href="tel:+4917695152732" aria-label="Anrufen"><span class="tip">0176 951 52 732</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg></a>
+    <a class="ml" href="mailto:info@heilpraxis-toelstede.de" aria-label="E-Mail schreiben"><span class="tip">E-Mail</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2 7.4 5.4L19.4 7H4.6zM4 17h16V9.2l-8 5.8-8-5.8V17z"/></svg></a>
+  </div>
+  <a class="fab" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin<br>online<br>buchen</a>
+  <button type="button" class="main" id="cwBtn" aria-expanded="false" aria-controls="cwMore" aria-label="Kontakt öffnen"><svg class="i-chat" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.2 15l-.3-.18-3.1.9.9-3-.2-.3A8.1 8.1 0 0 1 12.04 3.8zm-3.2 3.9c-.2 0-.5.07-.75.35-.25.28-.97.95-.97 2.3s1 2.7 1.12 2.9c.14.18 1.95 3.1 4.8 4.2 2.4.95 2.9.76 3.4.7.5-.05 1.65-.67 1.9-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32-.28-.14-1.65-.82-1.9-.9-.26-.1-.45-.14-.63.14-.18.28-.72.9-.88 1.1-.16.18-.32.2-.6.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.4-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.12.28-.32.42-.48.14-.16.18-.28.28-.46.1-.2.05-.35-.02-.5-.07-.14-.62-1.5-.85-2.05-.22-.54-.45-.46-.63-.47h-.54z"/></svg><svg class="i-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg></button>
+</div>
+
+<section class="logos" aria-label="Termin, Bewertungen und Mitgliedschaften"><div class="wrap">
+  <div><h4>Termin &amp; Bewertungen</h4><p>Online buchen oder auf Jameda nachlesen.</p><div class="row">
+    <a href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener"><img src="img/doctolib.png" alt="Doctolib" width="170" height="43"></a>
+    <a href="https://www.jameda.de/simone-toelstede/heilpraktiker/muenchen" target="_blank" rel="noopener"><img src="img/jameda.png" alt="jameda" width="170" height="39"></a></div></div>
+  <div><h4>Mitglied</h4><p>im Heilpraktikerverband Bayern e. V. und im Fachverband Deutscher Heilpraktiker e. V.</p><div class="row">
+    <a href="https://www.heilpraktiker.org/" target="_blank" rel="noopener"><img src="img/fdh.png" alt="Fachverband Deutscher Heilpraktiker e. V." width="120" height="120"></a></div></div>
+  <div><h4>Verzeichnis</h4><p>Zu finden im Heilpraktiker-Verzeichnis von Aponeo.</p><div class="row">
+    <img src="img/aponeo.jpg" alt="Aponeo Heilpraktiker-Verzeichnis" width="125" height="125" style="border-radius:50%"></div></div>
+</div></section>
+<footer>
+  <img src="img/start-wald.jpg" alt="" loading="lazy">
+  <div class="wrap" style="display:block">
+    <span class="flab">Kontakt</span><h3 class="fh">Ich freue mich <em>auf dich.</em></h3>
+    <div class="ftiles" id="kontakt-info">
+      <a class="t" href="tel:+4917695152732"><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span class="flab">Anrufen</span><b>0176 951 52 732</b><span>Gern auch eine Nachricht hinterlassen</span></a>
+      <a class="t" href="mailto:info@heilpraxis-toelstede.de"><span class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="flab">Schreiben</span><b>info@heilpraxis-toelstede.de</b><span>Ich melde mich zeitnah</span></a>
+      <a class="t" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener"><span class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span class="flab">Termin</span><b>Online über Doctolib</b><span>Direkt freie Zeiten sehen</span></a>
+    </div>
+    <div class="frows">
+      <div><span class="flab">Praxis</span><p>Heilpraxis Toelstede<br>Dr. rer. nat. Simone Toelstede<br>Untere Weidenstraße 13<br>81543 München</p></div>
+      <div><span class="flab">Anfahrt</span><p>U1, U2, U7 und Bus 52, 58, 68 bis Kolumbusplatz. Parken direkt vor der Praxis (gebührenpflichtig) oder am Schyrenbad (Parkscheibe, 4 Std.).</p><p><a href="https://www.google.com/maps/search/?api=1&query=Untere+Weidenstra%C3%9Fe+13+81543+M%C3%BCnchen" target="_blank" rel="noopener">In Google Maps öffnen</a></p></div>
+      <div><span class="flab">Öffnungszeiten</span><p>Nach Vereinbarung</p><p>Bitte vereinbare einen Termin über Doctolib oder telefonisch.</p></div>
+    </div>
+    <div class="fbot"><span>© 2026 Heilpraxis Toelstede. All rights reserved.</span><div class="legal"><span class="soc"><a href="https://www.instagram.com/heilpraxis_toelstede/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></a><a href="https://www.facebook.com/HeilpraxisToelstede" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14a3.5 3.5 0 0 0-3.5 3.5v2H8v3.5h2.5V20H14v-6.5h2.5l.5-3.5h-3V8.5a.5.5 0 0 1 .5-.5z"/></svg></a></span><a href="https://heilpraxis-toelstede.de/impressum/" target="_blank" rel="noopener">Impressum</a><a href="https://heilpraxis-toelstede.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a></div></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Sonnenstrahlen um das Emblem
+  function rays(id,cx,cy,r1,r2,n,seed){
+    var g=document.getElementById(id); if(!g) return;
+    var s=seed, out='';
+    for(var i=0;i<n;i++){
+      var a=(i/n)*Math.PI*2+0.1;
+      s=(s*9301+49297)%233280; var v=s/233280;
+      var a1=r1+v*(r2-r1)*0.35, a2=r1+(r2-r1)*(0.55+v*0.45);
+      out+='<line x1="'+(cx+Math.cos(a)*a1).toFixed(1)+'" y1="'+(cy+Math.sin(a)*a1).toFixed(1)+'" x2="'+(cx+Math.cos(a)*a2).toFixed(1)+'" y2="'+(cy+Math.sin(a)*a2).toFixed(1)+'"/>';
+    }
+    g.innerHTML=out;
+  }
+  rays('rays',100,98,62,92,18,7);
+  rays('miniRays',50,50,34,46,12,3);
+
+  var views={home:'v-home','ueber-mich':'v-ueber-mich',labor:'v-labor',stress:'v-stress',ihht:'v-ihht',hyperthermie:'v-hyperthermie',rifetech:'v-rifetech',medkey:'v-medkey',infusion:'v-infusion',darm:'v-darm',ohr:'v-ohr',preise:'v-preise'};
+  var nav=document.getElementById('nav'), burger=document.getElementById('burger');
+  function show(){
+    var h=(location.hash||'#home').slice(1), scrollNews=false;
+    if(h==='aktuelles'){h='home';scrollNews=true}
+    if(!views[h]) h='home';
+    document.querySelectorAll('.view').forEach(function(v){v.classList.toggle('active',v.id===views[h])});
+    document.querySelectorAll('nav.main a[data-v]').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-v')===h)});
+    nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+    if(scrollNews){var n=document.getElementById('news'); if(n) setTimeout(function(){n.scrollIntoView()},30)}
+    else window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show); show();
+  /* Kontakt: kein eigener View, sondern Sprung zu den Kontaktinfos im Footer */
+  function toKontakt(e){
+    if(e)e.preventDefault();
+    var k=document.getElementById('kontakt-info'); if(!k)return;
+    nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+    k.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'center'});
+    k.classList.remove('flash'); void k.offsetWidth; k.classList.add('flash');
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="#kontakt"]'); if(a)toKontakt(e)});
+  (function(){var v=document.querySelectorAll('.viz');if(!v.length)return;if(!('IntersectionObserver' in window)){v.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('in',e.isIntersecting)})},{threshold:.35});v.forEach(function(e){io.observe(e)})})();
+if(location.hash==='#kontakt'){history.replaceState(null,'',location.pathname+location.search);setTimeout(toKontakt,60)}
+
+  var cwB=document.getElementById('cwBtn'),cwM=document.getElementById('cwMore');cwB.addEventListener('click',function(){var o=cwM.hidden;cwM.hidden=!o;cwB.setAttribute('aria-expanded',o?'true':'false')});
+  burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false')});
+
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy'), box=b.parentNode.querySelector('.val');
+      function sel(){var r=document.createRange();r.selectNodeContents(box);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Markiert – bitte kopieren'}
+      try{navigator.clipboard.writeText(t).then(function(){b.textContent='Kopiert ✓'},sel)}catch(e){sel()}
+    });
+  });
+})();
+</script>
+<script>
+/* Parallax der Leistungs-Heroes: Foto läuft beim Scrollen langsamer als die Seite */
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(rm)return;
+  var t=false;
+  function run(){
+    t=false;
+    var vh=window.innerHeight;
+    document.querySelectorAll('.view.active .shero,.view.active .hero-wald').forEach(function(h){
+      var r=h.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      var img=h.querySelector('.sbg');if(!img)return;
+      var d=(r.top+r.height/2-vh/2)*-0.18;
+      var max=r.height*0.16;
+      d=Math.max(-max,Math.min(max,d));
+      img.style.transform='translate3d(0,'+d.toFixed(1)+'px,0)';
+    });
+  }
+  function req(){if(!t){t=true;requestAnimationFrame(run)}}
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',req);
+  addEventListener('hashchange',function(){setTimeout(run,60)});
+  run();
+})();
+</script>
+<script>
+(function(){
+var ic={chat:'<path d="M4 5h16v11H10l-5 4v-4H4z"/>',pulse:'<path d="M3 12h4l2-6 4 12 2-6h6"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',drop:'<path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/>',air:'<path d="M3 9h10a3 3 0 1 0-3-3M3 15h14a3 3 0 1 1-3 3M3 12h6"/>',hand:'<path d="M8 13V6a1.5 1.5 0 0 1 3 0v5m0-2V4.5a1.5 1.5 0 0 1 3 0V11m0-4.5a1.5 1.5 0 0 1 3 0V14a6 6 0 0 1-6 6h-1a5 5 0 0 1-4-2l-3-4a1.5 1.5 0 0 1 2.3-1.8L8 14"/>',ear:'<path d="M9 20a3 3 0 0 0 3-3c0-3 5-3 5-8a5 5 0 0 0-10 0"/><path d="M12 9a2 2 0 0 1 4 0"/>',key:'<circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>',tape:'<rect x="3" y="8" width="18" height="8" rx="4" transform="rotate(-20 12 12)"/><path d="M9 11l2 3M13 10l2 3" transform="rotate(-20 12 12)"/>',sun:'<rect x="3" y="12" width="18" height="7" rx="3.5"/><circle cx="12" cy="6" r="2.5"/><path d="M12 1.5v1M6.5 3.5l.7.7M17.5 3.5l-.7.7"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/>'};
+var G=[
+{id:'a',n:'1',h:'Ankommen',p:'Der Einstieg: Wir lernen uns kennen.',it:[
+ {id:'e1',ic:'chat',t:'Erstgespräch',sub:'Anamnese (ca. 60–90 Min.)',v:[{p:175}],det:['ausführliches Anamnesegespräch','Auswertung deiner Unterlagen, falls vorhanden','körperliche Untersuchung, falls notwendig','ggf. Blutabnahme','Erstberatung zu möglichen Therapieschritten','ggf. ganzheitlicher Therapieplan']},
+ {id:'e2',ic:'pulse',t:'Erstgespräch inkl. HRV-Messung',sub:'75–120 Min.',v:[{p:210}],det:['ausführliches Anamnesegespräch','Auswertung deiner Unterlagen, falls vorhanden','körperliche Untersuchung, falls notwendig','ggf. Blutabnahme','Kurzzeit-HRV-Messung','Erstberatung zu möglichen Therapieschritten','ggf. ganzheitlicher Therapieplan']}]},
+{id:'b',n:'2',h:'Beratung',p:'Fragen klären, Schritte besprechen.',it:[
+ {id:'b1',ic:'chat',t:'Therapeutische Beratung',sub:'60 Minuten (Anpassung je nach Zeitaufwand)',v:[{p:129}]},
+ {id:'b2',ic:'phone',t:'Beratung per Telefon oder E-Mail',sub:'ohne Termin, 10 Minuten (Anpassung je nach Zeitaufwand)',v:[{p:20}]}]},
+{id:'d',n:'3',h:'Messen & Verstehen',p:'Diagnostik, damit nichts im Verborgenen bleibt.',it:[
+ {id:'d1',ic:'pulse',t:'Stressdiagnostik',sub:'HRV/RSA, inkl. Befundbericht',v:[{l:'Kurzzeit',p:59,note:'3 Messungen (mit/ohne kontrollierte Atmung)'},{l:'Langzeit 24 h',p:120,note:'zzgl. Leihgebühr EKG-Messgerät'}]}]},
+{id:'t',n:'4',h:'Behandeln',p:'Anwendungen, die dich unterstützen.',it:[
+ {id:'t1',ic:'drop',t:'Infusionstherapie',sub:'je Sitzung, ca. 30–60 Min.',v:[{p:65,note:'zzgl. Ampullen / Therapeutika'}]},
+ {id:'t2',ic:'air',t:'IHHT Sauerstofftherapie',sub:'je Sitzung, ca. 40–55 Min.',v:[{l:'Einzelsitzung',p:80},{l:'10er-Paket',p:750}]},
+ {id:'t3',ic:'hand',t:'Manuelle Therapien',sub:'Hand anlegen, Spannung lösen',v:[{l:'Cranio-Sacral, 50–60 Min.',p:90},{l:'Faszienmassage, 75–90 Min.',p:110},{l:'Faszien 10er-Paket',p:990}]},
+ {id:'t4',ic:'ear',t:'Ohrakupunktur',sub:'je Sitzung',v:[{p:45}]},
+ {id:'t5',ic:'key',t:'Medkey',sub:'je Sitzung',v:[{p:45}]},
+ {id:'t6',ic:'tape',t:'Kinesio-Taping',sub:'je Anwendung',v:[{p:25,pre:'ab'}]},
+ {id:'t7',ic:'sun',t:'Regenerationsmatte',sub:'IR-Strahlung, Magnetfeld, Biophotonen',v:[{l:'20-Min.-Sitzung',p:35},{l:'10 × 20 Min. oder 5 × 40 Min.',p:290}]}]}];
+var root=document.getElementById('pz-root');if(!root)return;
+var sel={},vi={},fmt=function(n){return n.toLocaleString('de-DE')+' €'};
+var h='';G.forEach(function(g){h+='<section class="pz-sec" data-g="'+g.id+'"><div class="pz-sh"><span class="n">'+g.n+'</span><div><h2>'+g.h+'</h2><p>'+g.p+'</p></div></div><div class="pz-grid">';
+g.it.forEach(function(i){vi[i.id]=0;h+='<div class="pz-card" data-id="'+i.id+'"><div class="pz-top"><span class="pz-ic"><svg viewBox="0 0 24 24">'+ic[i.ic]+'</svg></span><button type="button" class="pz-add" aria-label="Zu meiner Auswahl hinzufügen: '+i.t+'">+</button></div><h3>'+i.t+'</h3><span class="pz-sub">'+i.sub+'</span>';
+if(i.v.length>1){h+='<div class="pz-vars">';i.v.forEach(function(v,k){h+='<button type="button" data-k="'+k+'" aria-pressed="'+(k==0)+'">'+v.l+'</button>'});h+='</div>'}
+h+='<div class="pz-amt"></div><span class="pz-note"></span>';
+if(i.det){h+='<details><summary>Was ist dabei?</summary><ul>';i.det.forEach(function(d){h+='<li>'+d+'</li>'});h+='</ul></details>'}
+h+='</div>'});h+='</div></section>'});
+root.innerHTML=h;
+var F=document.querySelector('.pz-filter'),fh='<button type="button" role="tab" aria-selected="true" data-g="*">Alle</button>';
+G.forEach(function(g){fh+='<button type="button" role="tab" aria-selected="false" data-g="'+g.id+'">'+g.h+'</button>'});F.innerHTML=fh;
+function item(id){for(var a=0;a<G.length;a++)for(var b=0;b<G[a].it.length;b++)if(G[a].it[b].id==id)return G[a].it[b]}
+function paint(c){var i=item(c.dataset.id),v=i.v[vi[i.id]];c.querySelector('.pz-amt').innerHTML=(v.pre?'<small>'+v.pre+'</small>':'')+fmt(v.p);
+ var nt=[];if(v.note)nt.push(v.note);c.querySelector('.pz-note').textContent=nt.join(' · ')}
+var cur=0,raf;function tween(to){var bar=document.getElementById('pz-sum'),from=cur;cancelAnimationFrame(raf);
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches){bar.textContent=fmt(to);cur=to;return}
+ var t0=performance.now();(function st(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);cur=Math.round(from+(to-from)*e);bar.textContent=fmt(cur);if(k<1)raf=requestAnimationFrame(st)})(t0)}
+function total(pop){var n=0,sum=0;for(var id in sel)if(sel[id]){n++;sum+=item(id).v[vi[id]].p}
+ var bar=document.getElementById('pz-bar');document.getElementById('pz-n').textContent=n+(n==1?' Leistung':' Leistungen');tween(sum);bar.classList.toggle('show',n>0);
+ if(pop){bar.classList.remove('pop');void bar.offsetWidth;bar.classList.add('pop')}}
+root.querySelectorAll('.pz-card').forEach(paint);
+root.addEventListener('click',function(e){var c=e.target.closest('.pz-card');if(!c)return;if(e.target.closest('summary,details'))return;var id=c.dataset.id,vb=e.target.closest('.pz-vars button');
+ if(vb){vi[id]=+vb.dataset.k;c.querySelectorAll('.pz-vars button').forEach(function(b){b.setAttribute('aria-pressed',b===vb)});paint(c);if(sel[id])total(false);return}
+ sel[id]=!sel[id];c.classList.toggle('on',sel[id]);total(true)});
+F.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;F.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+ root.querySelectorAll('.pz-sec').forEach(function(s){s.hidden=!(b.dataset.g=='*'||s.dataset.g==b.dataset.g)})});
+document.getElementById('pz-clear').addEventListener('click',function(){sel={};root.querySelectorAll('.pz-card').forEach(function(c){c.classList.remove('on')});total(false)});
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Statische Seite, kein Build. Netlify liefert den Ordner direkt aus.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
