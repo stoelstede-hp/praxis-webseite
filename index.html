@@ -225,18 +225,13 @@ a.card:hover{transform:translateY(-4px);border-color:var(--bronze)}
 .pchips .chip{white-space:normal;line-height:1.25}
 @media(max-width:980px){.pintro{grid-template-columns:1fr}}
 .pz-hero{background:#F9F3E8 url(img/tex-papier-fein.png);background-size:512px;border-bottom:1px solid var(--line);overflow:hidden}
-.pz-hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;padding-block:clamp(2.4rem,6vw,4.2rem)}
+.pz-hero .wrap{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;padding-block:clamp(2.4rem,6vw,4.2rem)}
 .pz-ht .crumb{font:600 .74rem/1.6 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
 .pz-ht .crumb a{color:var(--accent-text)}
 .pz-ht h1{margin:.4rem 0 .8rem}
 .pz-ht .rule{display:block;width:54px;height:3px;background:var(--orange);border-radius:3px;margin-bottom:1rem}
 .pz-ht p{margin:0;font-size:1.12rem;max-width:36ch;color:var(--muted)}
-.pz-coins{position:relative;height:230px}
-.pz-coins .c{position:absolute;display:grid;place-items:center;font:400 clamp(1.4rem,3vw,2rem)/1 var(--display);color:#3a2a14;background:radial-gradient(circle at 30% 25%,#F2C28A,var(--orange));box-shadow:inset 0 0 0 5px rgba(255,255,255,.35),0 14px 30px -12px rgba(134,98,47,.45);animation:morph 9s ease-in-out infinite,floaty 7s ease-in-out infinite}
-.pz-coins .c1{width:96px;height:96px;left:6%;top:8%;animation-delay:0s,-1s}
-.pz-coins .c2{width:120px;height:120px;left:34%;top:46%;background:radial-gradient(circle at 30% 25%,#fff,#E8E5DF);animation-delay:-3s,-2.4s}
-.pz-coins .c3{width:150px;height:150px;left:56%;top:0;animation-delay:-5s,-4s}
-.pz-coins .c4{width:84px;height:84px;left:80%;top:58%;background:radial-gradient(circle at 30% 25%,#F8E3C6,#EBC693);animation-delay:-2s,-5.5s}
+
 .pz{padding-bottom:7rem}
 .pz-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.6rem}
 .pz-chips .chip{white-space:normal;line-height:1.25}
@@ -251,16 +246,12 @@ a.card:hover{transform:translateY(-4px);border-color:var(--bronze)}
 .pz-sh h2{margin:0;font-size:clamp(1.5rem,3vw,2rem)}
 .pz-sh p{margin:0;color:var(--muted);font-size:.95rem}
 .pz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
-.pz-card{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:26px 26px 26px 8px;padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;min-width:0;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s,background .25s}
-.pz-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(69,76,84,.45)}
-.pz-card.on{border-color:var(--orange);background:#FFF9F1;box-shadow:0 18px 36px -22px rgba(227,161,92,.7)}
+.pz-card{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:26px 26px 26px 8px;padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
 .pz-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
 .pz-ic{width:46px;height:46px;border-radius:50%;background:rgba(227,161,92,.22);color:var(--accent-text);display:grid;place-items:center;flex:none;transition:background .25s,color .25s,transform .4s}
-.pz-card.on .pz-ic{background:var(--orange);color:#3a2a14;transform:rotate(-8deg) scale(1.06)}
+
 .pz-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.pz-add{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--orange);background:transparent;color:var(--ink);font:400 1.5rem/1 var(--body);cursor:pointer;display:grid;place-items:center;transition:transform .3s,background .2s;flex:none}
-.pz-card.on .pz-add{background:var(--orange);transform:rotate(45deg)}
-.pz-card h3{font-size:1.35rem;margin:.3rem 0 0}
+
 .pz-sub{font-size:.9rem;color:var(--muted)}
 .pz-amt{font:400 2.5rem/1 var(--display);color:var(--accent-text);margin-top:.4rem}
 .pz-amt small{font:600 .8rem/1 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:.35rem}
@@ -278,18 +269,7 @@ a.card:hover{transform:translateY(-4px);border-color:var(--bronze)}
 .pz-acc details{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1rem 1.3rem}
 .pz-acc summary{cursor:pointer;font:600 .84rem/1.3 var(--label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text)}
 .pz-acc p{margin:.8rem 0 .6rem}
-.pz-bar{position:fixed;left:50%;bottom:18px;z-index:40;transform:translate(-50%,140%);width:min(760px,calc(100% - 210px));background:var(--ink);color:#fff;border-radius:30px 30px 30px 8px;padding:.9rem 1.2rem .9rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;box-shadow:0 22px 40px -18px rgba(0,0,0,.5);transition:transform .45s cubic-bezier(.2,.9,.3,1.1)}
-.pz-bar.show{transform:translate(-50%,0)}
-.pz-bar.pop{animation:pzpop .4s}
-@keyframes pzpop{40%{transform:translate(-50%,-6px)}}
-.pz-bl{display:grid;gap:.1rem;min-width:0}
-.pz-bl b{white-space:nowrap;font:600 .72rem/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
-.pz-bl span{font:400 clamp(1.7rem,4vw,2.2rem)/1.1 var(--display)}
-.pz-bl small{font-size:.72rem;opacity:.7}
-.pz-br{display:flex;gap:.7rem;align-items:center;flex:none}
-.pz-x{background:none;border:0;color:#fff;opacity:.75;font:600 .74rem/1 var(--label);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:underline}
-@media(max-width:820px){.pz-hero .wrap{grid-template-columns:1fr}.pz-coins{height:170px}.pz-coins .c3{width:110px;height:110px;left:52%}.pz-coins .c2{width:90px;height:90px;left:28%;top:50%}.pz-coins .c4{left:78%;top:55%;width:64px;height:64px}.pz-coins .c1{width:76px;height:76px}.pz-bar{width:calc(100% - 100px);left:16px;transform:translate(0,140%);padding:.8rem 1rem}.pz-bar.show{transform:none}.pz-bar.pop{animation:none}.pz-bl small{display:none}.pz-br .btn{padding:.9em 1.1em}.pz-x{display:none}}
-@media(prefers-reduced-motion:reduce){.pz-coins .c{animation:none}.pz-bar{transition:none}}
+
 .prices{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem}
 .price{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem;display:flex;flex-direction:column;gap:.4rem;min-width:0}
 .price h3{font-size:1.35rem}
@@ -982,8 +962,7 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
 <!-- PREISE -->
 <div class="view" id="v-preise">
   <div class="pz-hero"><div class="wrap">
-    <div class="pz-ht"><span class="crumb"><a href="#home">Home</a> / Meine Preise</span><h1>Meine Preise</h1><span class="rule"></span><p>Transparent und ohne Kleingedrucktes. Klick dir dein Paket zusammen und sieh sofort, was es kostet.</p></div>
-    <div class="pz-coins" aria-hidden="true"><span class="c c1">20 €</span><span class="c c2">59 €</span><span class="c c3">175 €</span><span class="c c4">45 €</span></div>
+    <div class="pz-ht"><span class="crumb"><a href="#home">Home</a> / Meine Preise</span><h1>Meine Preise</h1><span class="rule"></span><p>Transparent und ohne Kleingedrucktes. Hier findest du alle Leistungen mit ihren Preisen auf einen Blick.</p></div>
   </div></div>
   <div class="wrap page pz">
     <div class="pz-chips"><span class="chip">Selbstzahler</span><span class="chip">Private Krankenversicherung</span><span class="chip">HP-Zusatzversicherung</span><span class="chip">Teilzahlung in finanziell schwierigen Lebenssituationen</span></div>
@@ -995,7 +974,7 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
       <details><summary>In schwierigen finanziellen Situationen</summary><p>Falls du finanziell in einer schwierigen Situation steckst und das der einzige Grund gegen eine Behandlung ist, kontaktiere mich. Wir finden auch hier einen Weg!</p><a class="btn ghost" href="#kontakt">Kontakt aufnehmen</a></details>
     </div></div>
   </div>
-  <div class="pz-bar" id="pz-bar" aria-live="polite"><div class="pz-bl"><b id="pz-n">0 Leistungen</b><span id="pz-sum">0 €</span><small>Richtwert, zzgl. Material bzw. Leihgebühr, wo angegeben</small></div><div class="pz-br"><button type="button" id="pz-clear" class="pz-x">Leeren</button><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a></div></div>
+
 </div>
 
 <!-- KONTAKT -->
@@ -1140,9 +1119,9 @@ var G=[
  {id:'t6',ic:'tape',t:'Kinesio-Taping',sub:'je Anwendung',v:[{p:25,pre:'ab'}]},
  {id:'t7',ic:'sun',t:'Regenerationsmatte',sub:'IR-Strahlung, Magnetfeld, Biophotonen',v:[{l:'20-Min.-Sitzung',p:35},{l:'10 × 20 Min. oder 5 × 40 Min.',p:290}]}]}];
 var root=document.getElementById('pz-root');if(!root)return;
-var sel={},vi={},fmt=function(n){return n.toLocaleString('de-DE')+' €'};
+var vi={},fmt=function(n){return n.toLocaleString('de-DE')+' €'};
 var h='';G.forEach(function(g){h+='<section class="pz-sec" data-g="'+g.id+'"><div class="pz-sh"><span class="n">'+g.n+'</span><div><h2>'+g.h+'</h2><p>'+g.p+'</p></div></div><div class="pz-grid">';
-g.it.forEach(function(i){vi[i.id]=0;h+='<div class="pz-card" data-id="'+i.id+'"><div class="pz-top"><span class="pz-ic"><svg viewBox="0 0 24 24">'+ic[i.ic]+'</svg></span><button type="button" class="pz-add" aria-label="Zu meiner Auswahl hinzufügen: '+i.t+'">+</button></div><h3>'+i.t+'</h3><span class="pz-sub">'+i.sub+'</span>';
+g.it.forEach(function(i){vi[i.id]=0;h+='<div class="pz-card" data-id="'+i.id+'"><div class="pz-top"><span class="pz-ic"><svg viewBox="0 0 24 24">'+ic[i.ic]+'</svg></span></div><h3>'+i.t+'</h3><span class="pz-sub">'+i.sub+'</span>';
 if(i.v.length>1){h+='<div class="pz-vars">';i.v.forEach(function(v,k){h+='<button type="button" data-k="'+k+'" aria-pressed="'+(k==0)+'">'+v.l+'</button>'});h+='</div>'}
 h+='<div class="pz-amt"></div><span class="pz-note"></span>';
 if(i.det){h+='<details><summary>Was ist dabei?</summary><ul>';i.det.forEach(function(d){h+='<li>'+d+'</li>'});h+='</ul></details>'}
@@ -1153,19 +1132,13 @@ G.forEach(function(g){fh+='<button type="button" role="tab" aria-selected="false
 function item(id){for(var a=0;a<G.length;a++)for(var b=0;b<G[a].it.length;b++)if(G[a].it[b].id==id)return G[a].it[b]}
 function paint(c){var i=item(c.dataset.id),v=i.v[vi[i.id]];c.querySelector('.pz-amt').innerHTML=(v.pre?'<small>'+v.pre+'</small>':'')+fmt(v.p);
  var nt=[];if(v.note)nt.push(v.note);c.querySelector('.pz-note').textContent=nt.join(' · ')}
-var cur=0,raf;function tween(to){var bar=document.getElementById('pz-sum'),from=cur;cancelAnimationFrame(raf);
- if(matchMedia('(prefers-reduced-motion:reduce)').matches){bar.textContent=fmt(to);cur=to;return}
- var t0=performance.now();(function st(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);cur=Math.round(from+(to-from)*e);bar.textContent=fmt(cur);if(k<1)raf=requestAnimationFrame(st)})(t0)}
-function total(pop){var n=0,sum=0;for(var id in sel)if(sel[id]){n++;sum+=item(id).v[vi[id]].p}
- var bar=document.getElementById('pz-bar');document.getElementById('pz-n').textContent=n+(n==1?' Leistung':' Leistungen');tween(sum);bar.classList.toggle('show',n>0);
- if(pop){bar.classList.remove('pop');void bar.offsetWidth;bar.classList.add('pop')}}
+
 root.querySelectorAll('.pz-card').forEach(paint);
-root.addEventListener('click',function(e){var c=e.target.closest('.pz-card');if(!c)return;if(e.target.closest('summary,details'))return;var id=c.dataset.id,vb=e.target.closest('.pz-vars button');
- if(vb){vi[id]=+vb.dataset.k;c.querySelectorAll('.pz-vars button').forEach(function(b){b.setAttribute('aria-pressed',b===vb)});paint(c);if(sel[id])total(false);return}
- sel[id]=!sel[id];c.classList.toggle('on',sel[id]);total(true)});
+root.addEventListener('click',function(e){var vb=e.target.closest('.pz-vars button');if(!vb)return;var c=vb.closest('.pz-card'),id=c.dataset.id;
+ vi[id]=+vb.dataset.k;c.querySelectorAll('.pz-vars button').forEach(function(b){b.setAttribute('aria-pressed',b===vb)});paint(c)});
 F.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;F.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
  root.querySelectorAll('.pz-sec').forEach(function(s){s.hidden=!(b.dataset.g=='*'||s.dataset.g==b.dataset.g)})});
-document.getElementById('pz-clear').addEventListener('click',function(){sel={};root.querySelectorAll('.pz-card').forEach(function(c){c.classList.remove('on')});total(false)});
+
 })();
 </script>
 
