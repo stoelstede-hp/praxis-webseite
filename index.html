@@ -418,6 +418,10 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
 @media (max-width:820px){.shero-dome::before{background:rgba(249,243,235,.78)}.shero-dome .wrap{text-align:center;place-items:center}.shero-dome .st{justify-items:center}.shero-dome .cta-row{justify-content:center}}
 
 /* Medkey-Hero: Gerät links, Text rechts, heller Papier-Hintergrund */
+.shero-me::before{background:linear-gradient(90deg,rgba(249,243,235,0) 0%,rgba(249,243,235,0) 38%,rgba(249,243,235,.9) 62%,rgba(249,243,235,.94) 100%)}
+.shero-me .wrap{text-align:left;place-items:center end}
+.shero-me .st{justify-items:start;max-width:440px}
+@media (max-width:820px){.shero-me::before{background:linear-gradient(180deg,rgba(249,243,235,0) 0%,rgba(249,243,235,0) 40%,rgba(249,243,235,.93) 72%)}.shero-me .wrap{text-align:center;place-items:end center}.shero-me .st{justify-items:center}}
 .shero.shero-dev{background:#F9F3E8 url(img/tex-papier-fein.png) 0 0/512px 512px}
 .shero.shero-dev::before{display:none}
 .shero-dev .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,4vw,4rem);place-items:center;text-align:left;min-height:clamp(380px,38vw,500px)}
@@ -578,7 +582,7 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
 
 <!-- ÜBER MICH -->
 <div class="view" id="v-ueber-mich">
-  <div class="page-head"><div class="wrap"><span class="crumb"><a href="#home">Home</a> / Über mich</span><h1>Über mich</h1><p>Zu meiner Person</p></div></div>
+  <div class="shero shero-me"><img class="sbg" src="img/simone-seitlich.jpg" alt="Dr. rer. nat. Simone Toelstede, lachend im Profil" style="object-position:50% 25%" width="900"><div class="wrap"><div class="st"><span class="crumb"><a href="#home">Home</a> / Über mich</span><h1>Über mich</h1><span class="rule"></span><p>Zu meiner Person</p></div></div></div>
   <div class="wrap page"><div class="cols">
     <div class="prose">
       <p>(Er-)forschend – so würde ich eine meiner Lieblingseigenschaften beschreiben. Ich hatte schon immer den Drang, Dingen auf den Grund zu gehen, und bin entsprechend neugierig. Auf meiner bisherigen Reise durfte ich viel ausprobieren und kennenlernen: von der Lebensmittelforschung über einen kleinen Manufakturbetrieb bis hin zum Thema Gesundheit, das mich schon seit meiner Kindheit begleitet.</p>
@@ -613,7 +617,6 @@ footer svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1
       <p><span class="chip">Immunstärkung</span> <span class="chip">Darmgesundheit</span> <span class="chip">Stressdiagnostik</span> <span class="chip">Prävention</span></p>
     </div>
     <aside class="side">
-      <div class="bub"><img src="img/simone-portrait.jpg" alt="Dr. rer. nat. Simone Toelstede" loading="lazy"></div>
       <div class="panel"><h4>Dr. rer. nat. Simone Toelstede</h4><p>Heilpraktikerin, Untere Weidenstraße 13, 81543 München</p><a class="btn" href="https://www.doctolib.de/heilpraktiker/muenchen/simone-toelstede" target="_blank" rel="noopener">Termin buchen</a></div>
     </aside>
   </div></div>
